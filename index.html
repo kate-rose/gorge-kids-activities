@@ -316,14 +316,52 @@
   }
 
   .no-results span { font-size: 2rem; display: block; margin-bottom: 8px; }
+
+  .lang-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1.5px solid transparent;
+    color: rgba(240,236,227,0.5);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    padding: 2px 7px;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .lang-btn.active {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .lang-sep {
+    color: rgba(240,236,227,0.25);
+    font-size: 0.75rem;
+    user-select: none;
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="eyebrow">❋ Open Gorge · Summer 2026</div>
-  <h1>Gorge Kids Activities</h1>
-  <p>Free &amp; low-cost fun across Skamania, Klickitat, Hood River &amp; Wasco counties</p>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+  <div class="eyebrow" id="hdr-eyebrow">❋ Open Gorge · Summer 2026</div>
+  <h1 id="hdr-title">Gorge Kids Activities</h1>
+  <p id="hdr-sub">Free &amp; low-cost fun across Skamania, Klickitat, Hood River &amp; Wasco counties</p>
 </header>
 
 <div class="controls">
@@ -331,39 +369,39 @@
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
     </svg>
-    <input type="search" id="search" placeholder="Search activities, locations…" autocomplete="off">
+    <input type="search" id="search" autocomplete="off">
   </div>
 
   <div class="filter-row" id="filter-row">
-    <span class="filter-label">Cost</span>
-    <button class="chip cost-free active" data-filter="cost" data-value="all">All</button>
-    <button class="chip cost-free" data-filter="cost" data-value="free">Free</button>
-    <button class="chip cost-low" data-filter="cost" data-value="low">Under $10</button>
+    <span class="filter-label" id="lbl-cost">Cost</span>
+    <button class="chip cost-free active" data-filter="cost" data-value="all" id="chip-cost-all">All</button>
+    <button class="chip cost-free" data-filter="cost" data-value="free" id="chip-cost-free">Free</button>
+    <button class="chip cost-low" data-filter="cost" data-value="low" id="chip-cost-low">Under $10</button>
   </div>
   <div class="filter-row" style="margin-top:8px" id="filter-row-county">
-    <span class="filter-label">County</span>
-    <button class="chip active" data-filter="county" data-value="all">All</button>
+    <span class="filter-label" id="lbl-county">County</span>
+    <button class="chip active" data-filter="county" data-value="all" id="chip-county-all">All</button>
     <button class="chip" data-filter="county" data-value="Skamania">Skamania</button>
     <button class="chip" data-filter="county" data-value="Klickitat">Klickitat</button>
     <button class="chip" data-filter="county" data-value="Hood River">Hood River</button>
     <button class="chip" data-filter="county" data-value="Wasco">Wasco</button>
   </div>
   <div class="filter-row" style="margin-top:8px" id="filter-row-age">
-    <span class="filter-label">Ages</span>
-    <button class="chip active" data-filter="age" data-value="all">All</button>
-    <button class="chip" data-filter="age" data-value="babies">Babies/Toddlers</button>
-    <button class="chip" data-filter="age" data-value="kids">Kids (4–12)</button>
-    <button class="chip" data-filter="age" data-value="teens">Teens</button>
+    <span class="filter-label" id="lbl-age">Ages</span>
+    <button class="chip active" data-filter="age" data-value="all" id="chip-age-all">All</button>
+    <button class="chip" data-filter="age" data-value="babies" id="chip-age-babies">Babies/Toddlers</button>
+    <button class="chip" data-filter="age" data-value="kids" id="chip-age-kids">Kids (4–12)</button>
+    <button class="chip" data-filter="age" data-value="teens" id="chip-age-teens">Teens</button>
   </div>
   <div class="filter-row" style="margin-top:8px" id="filter-row-type">
-    <span class="filter-label">Type</span>
-    <button class="chip active" data-filter="type" data-value="all">All</button>
-    <button class="chip" data-filter="type" data-value="concerts">Concerts</button>
-    <button class="chip" data-filter="type" data-value="library">Library</button>
-    <button class="chip" data-filter="type" data-value="outdoors">Outdoors</button>
-    <button class="chip" data-filter="type" data-value="arts">Arts & Crafts</button>
-    <button class="chip" data-filter="type" data-value="swimming">Swimming</button>
-    <button class="chip" data-filter="type" data-value="food">Food</button>
+    <span class="filter-label" id="lbl-type">Type</span>
+    <button class="chip active" data-filter="type" data-value="all" id="chip-type-all">All</button>
+    <button class="chip" data-filter="type" data-value="concerts" id="chip-type-concerts">Concerts</button>
+    <button class="chip" data-filter="type" data-value="library" id="chip-type-library">Library</button>
+    <button class="chip" data-filter="type" data-value="outdoors" id="chip-type-outdoors">Outdoors</button>
+    <button class="chip" data-filter="type" data-value="arts" id="chip-type-arts">Arts &amp; Crafts</button>
+    <button class="chip" data-filter="type" data-value="swimming" id="chip-type-swimming">Swimming</button>
+    <button class="chip" data-filter="type" data-value="food" id="chip-type-food">Food</button>
   </div>
 </div>
 
@@ -870,7 +908,81 @@ const activities = [
   }
 ];
 
+// Spanish translations for each activity (name + description)
+const translations = {
+  "2026 Summer Reading Challenge":    { name: "Desafío de Lectura de Verano 2026", desc: "Lee o escucha diversos formatos del 15 de junio al 15 de agosto para ganar premios." },
+  "Kids Create":                      { name: "Niños Crean", desc: "Evento práctico de STEM, construcción y manualidades." },
+  "Teen & Adult Create":              { name: "Crear para Jóvenes y Adultos", desc: "Sesión guiada de artes y manualidades creativas." },
+  "Bookmark Contest Celebration":     { name: "Celebración del Concurso de Separadores", desc: "Celebración de diseños del programa de lectura de verano — ganadores revelados, refrigerios incluidos." },
+  "Family Movie Matinee":             { name: "Matinée de Película Familiar", desc: "Mira una película familiar en un espacio con aire acondicionado." },
+  "Fire Preparedness with Plants":    { name: "Preparación contra Incendios con Plantas", desc: "Taller de seguridad ambiental y botánica." },
+  "Summer Reading Program":           { name: "Programa de Lectura de Verano", desc: "Registra tiempo de lectura en incrementos de 30 minutos para ganar premios y boletos de rifa." },
+  "Crazy Craft Club: Woven Dino Bag": { name: "Club de Manualidades: Bolsa de Dino Tejida", desc: "Proyecto práctico de ingeniería y manualidades en el Makerspace." },
+  "Fun Friday: Bubble Madness":       { name: "Viernes Divertido: Locura de Burbujas", desc: "Arte, manualidades y juegos activos." },
+  "Teen Fun Fridays: Summer Crafts":  { name: "Viernes Divertidos para Jóvenes: Manualidades", desc: "Sesión de manualidades veraniegas y socialización para adolescentes." },
+  "VR Gaming":                        { name: "Videojuegos de Realidad Virtual", desc: "Sesión de videojuegos de realidad virtual y tecnología." },
+  "Bookmobile at Wonderworks":        { name: "Bibliobús en Wonderworks", desc: "Exploración de libros, recogida de reservas y registro de tarjetas." },
+  "Rhinegarten Park Splash Pad":      { name: "Área de Agua en Rhinegarten Park", desc: "Juego de agua sin barreras integrado con el parque local." },
+  "Thompson Park Splash Pad":         { name: "Área de Agua en Thompson Park", desc: "Parque de rociadores gratuito; se activa cuando la temperatura supera los 75°F." },
+  "NWCPRD Active Rx Program":         { name: "Programa Active Rx de NWCPRD", desc: "Beneficiarios de OHP/SNAP/WIC reciben clases de natación gratuitas o pases familiares de verano por $25." },
+  "Saturday $1 Open Swim":            { name: "Natación Libre por $1 los Sábados", desc: "Natación recreativa a precio reducido todos los sábados." },
+  "Goldendale Pool Youth Swim":       { name: "Natación Juvenil en la Piscina de Goldendale", desc: "Tarifa única para jóvenes. Niños menores de 3 años gratis con adulto que pague." },
+  "North Wasco Summer Meals":         { name: "Comidas de Verano del Norte de Wasco", desc: "Distribución diaria de comidas USDA por rutas móviles para todos los jóvenes." },
+  "Hood River Summer Meals":          { name: "Comidas de Verano de Hood River", desc: "Comidas y refrigerios nutritivos gratuitos financiados federalmente durante el verano." },
+  "SUN Bucks (WA Summer EBT)":        { name: "SUN Bucks (EBT de Verano de WA)", desc: "$120 por niño elegible en una tarjeta tipo EBT para usar en cualquier tienda. Inscripción automática con SNAP o TANF. Familias en escuelas CEP (como Stevenson-Carson) también pueden solicitar." },
+  "Find Free Summer Meals Near You":  { name: "Encuentra Comidas de Verano Gratuitas", desc: "Usa el buscador del USDA para encontrar comidas gratuitas — sin papeleo, sin comprobación de ingresos. También llama o envía mensaje al 211, o envía FOOD al 914-342-7744." },
+  "Discover & Go / Experience Pass":  { name: "Pase de Experiencia / Discover & Go", desc: "Pases de admisión digitales gratuitos al Centro de Descubrimiento del Gorge, Museo Maryhill y más — con tu tarjeta de biblioteca." },
+  "Summer of Freedom Transit Pass":   { name: "Pase de Tránsito Verano de Libertad", desc: "Los jóvenes viajan gratis en transporte público, ganan premios y recompensas por leer en el autobús." },
+  "Junior Ranger Program":            { name: "Programa de Guardabosques Juvenil", desc: "Actividades educativas, caminatas y charlas con guardabosques para ganar una insignia de conservación." },
+  "Stevenson Waterfront Concerts":    { name: "Conciertos en el Malecón de Stevenson", desc: "Música en vivo al aire libre junto al río durante todo el verano." },
+  "Families in the Park Concerts":    { name: "Conciertos Familias en el Parque", desc: "Música en vivo y reunión comunitaria los jueves por la tarde durante agosto." },
+  "CASS Art Hives":                   { name: "Talleres de Arte CASS", desc: "Estudio abierto en el Community Art Studio de Skamania — materiales incluidos. Entra y crea, no necesitas experiencia. Club de Arte para Jóvenes también gratuito." },
+  "Bonneville Dam & Fish Hatchery":   { name: "Presa Bonneville y Criadero de Peces", desc: "Observa a Herman el Esturión Gigante, salmones en tanques y escaleras de peces, y recorre el centro de visitantes. Una de las mejores salidas familiares gratuitas del Gorge." },
+  "Stevenson Farmers Market":         { name: "Mercado de Agricultores de Stevenson", desc: "Mercado semanal con productos frescos, música en vivo y artesanías. Actividades infantiles gratuitas cada semana. El programa Power of Produce da a cada niño un cupón de $2 para productos frescos." },
+  "Walking Man Thursday Music":       { name: "Música de los Jueves en Walking Man", desc: "Música en vivo gratuita en el jardín de cerveza todos los jueves. Todas las edades y perros con correa bienvenidos." },
+  "Hood River Farmers Market":        { name: "Mercado de Agricultores de Hood River", desc: "Más de 55 vendedores con productos locales, comida, artesanías y música en vivo. Entrada gratuita." },
+  "Skamania County Fair & Timber Carnival": { name: "Feria y Carnaval de Madera del Condado de Skamania", desc: "Feria con admisión gratuita: animales, exhibiciones de 4-H, carnaval de madera, desfile, entretenimiento y actividades familiares." },
+  "Pacific Crest Trail Days":         { name: "Días del Sendero del Pacífico (PCT)", desc: "Festival de dos días que celebra el PCT. Más de 100 expositores, equipo, juegos y rifas. Admisión gratuita (donación sugerida: artículo no perecedero)." },
+  "Columbia Gorge Junior Kayak Club": { name: "Club Junior de Kayak del Columbia Gorge", desc: "Kayak juvenil completamente gratuito — sesiones en piscina, paseos vespertinos en los ríos Klickitat y White Salmon, y Días de Río los sábados. Equipo disponible para préstamo." },
+  "Gorge White House U-Pick":         { name: "Cosecha Propia en Gorge White House", desc: "Más de 30 acres de fresas, cerezas, arándanos y más. Sin reserva — los niños juegan en el pasto mientras cosechas. Hay comida para niños." },
+  "Wonderworks Children's Museum":    { name: "Museo Infantil Wonderworks", desc: "Museo de juego práctico con Área de Arte, Casa de Granja, Clínica Veterinaria, Tren, Teatro de Títeres y tienda. EBT/WIC: $2 por persona. Yoga infantil gratuito algunos sábados." },
+  "Columbia Gorge Discovery Center":  { name: "Centro de Descubrimiento del Columbia Gorge", desc: "Museo de historia natural con presentaciones de rapaces diarias a las 11 AM y 2 PM. Pases gratuitos disponibles en la biblioteca. Museos Blue Star: gratis para familias militares activas." },
+  "Maryhill Museum of Art":           { name: "Museo de Arte Maryhill", desc: "Impresionante museo junto al Columbia con esculturas de Rodin y arte nativo americano. EBT: $5/persona (hasta 4). Gratis para visitantes indígenas. Pases gratuitos de biblioteca disponibles." },
+};
+
+const ui = {
+  en: {
+    eyebrow: "❋ Open Gorge · Summer 2026",
+    title: "Gorge Kids Activities",
+    sub: "Free &amp; low-cost fun across Skamania, Klickitat, Hood River &amp; Wasco counties",
+    search: "Search activities, locations…",
+    cost: "Cost", county: "County", age: "Ages", type: "Type",
+    all: "All", free: "Free", low: "Under $10",
+    babies: "Babies/Toddlers", kids: "Kids (4–12)", teens: "Teens",
+    concerts: "Concerts", library: "Library", outdoors: "Outdoors",
+    arts: "Arts &amp; Crafts", swimming: "Swimming", food: "Food",
+    found: n => `${n} activit${n === 1 ? "y" : "ies"} found`,
+    moreInfo: "More info →",
+    noResults: "No activities match those filters.<br>Try broadening your search.",
+  },
+  es: {
+    eyebrow: "❋ Open Gorge · Verano 2026",
+    title: "Actividades para Niños en el Gorge",
+    sub: "Actividades gratuitas y de bajo costo en los condados de Skamania, Klickitat, Hood River y Wasco",
+    search: "Buscar actividades, lugares…",
+    cost: "Costo", county: "Condado", age: "Edades", type: "Tipo",
+    all: "Todo", free: "Gratis", low: "Menos de $10",
+    babies: "Bebés/Niños pequeños", kids: "Niños (4–12)", teens: "Adolescentes",
+    concerts: "Conciertos", library: "Biblioteca", outdoors: "Al aire libre",
+    arts: "Arte y manualidades", swimming: "Natación", food: "Comida",
+    found: n => `${n} actividad${n === 1 ? "" : "es"} encontrada${n === 1 ? "" : "s"}`,
+    moreInfo: "Más información →",
+    noResults: "No hay actividades que coincidan.<br>Intenta ampliar tu búsqueda.",
+  }
+};
+
 // State
+let lang = "en";
 let costFilter = "all";
 let countyFilter = "all";
 let ageFilter = "all";
@@ -891,15 +1003,47 @@ function getFiltered() {
     if (typeFilter !== "all" && !a.types.includes(typeFilter)) return false;
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
+      const name = lang === "es" && translations[a.name] ? translations[a.name].name : a.name;
+      const desc = lang === "es" && translations[a.name] ? translations[a.name].desc : a.desc;
       if (
-        !a.name.toLowerCase().includes(q) &&
-        !a.location.toLowerCase().includes(q) &&
-        !a.desc.toLowerCase().includes(q) &&
-        !a.category.toLowerCase().includes(q)
+        !name.toLowerCase().includes(q) &&
+        !desc.toLowerCase().includes(q) &&
+        !a.location.toLowerCase().includes(q)
       ) return false;
     }
     return true;
   });
+}
+
+function setLang(l) {
+  lang = l;
+  document.getElementById("btn-en").classList.toggle("active", l === "en");
+  document.getElementById("btn-es").classList.toggle("active", l === "es");
+  const t = ui[l];
+  document.getElementById("hdr-eyebrow").textContent = t.eyebrow;
+  document.getElementById("hdr-title").textContent = t.title;
+  document.getElementById("hdr-sub").innerHTML = t.sub;
+  document.getElementById("search").placeholder = t.search;
+  document.getElementById("lbl-cost").textContent = t.cost;
+  document.getElementById("lbl-county").textContent = t.county;
+  document.getElementById("lbl-age").textContent = t.age;
+  document.getElementById("lbl-type").textContent = t.type;
+  document.getElementById("chip-cost-all").textContent = t.all;
+  document.getElementById("chip-cost-free").textContent = t.free;
+  document.getElementById("chip-cost-low").textContent = t.low;
+  document.getElementById("chip-county-all").textContent = t.all;
+  document.getElementById("chip-age-all").textContent = t.all;
+  document.getElementById("chip-age-babies").textContent = t.babies;
+  document.getElementById("chip-age-kids").textContent = t.kids;
+  document.getElementById("chip-age-teens").textContent = t.teens;
+  document.getElementById("chip-type-all").textContent = t.all;
+  document.getElementById("chip-type-concerts").textContent = t.concerts;
+  document.getElementById("chip-type-library").textContent = t.library;
+  document.getElementById("chip-type-outdoors").textContent = t.outdoors;
+  document.getElementById("chip-type-arts").innerHTML = t.arts;
+  document.getElementById("chip-type-swimming").textContent = t.swimming;
+  document.getElementById("chip-type-food").textContent = t.food;
+  renderCards();
 }
 
 function iconPin() {
@@ -916,20 +1060,24 @@ function renderCards() {
   const grid = document.getElementById("grid");
   const bar = document.getElementById("results-bar");
   const items = getFiltered();
-  bar.textContent = `${items.length} activit${items.length === 1 ? "y" : "ies"} found`;
+  const t = ui[lang];
+  bar.textContent = t.found(items.length);
 
   if (items.length === 0) {
-    grid.innerHTML = `<div class="no-results"><span>🌿</span>No activities match those filters.<br>Try broadening your search.</div>`;
+    grid.innerHTML = `<div class="no-results"><span>🌿</span>${t.noResults}</div>`;
     return;
   }
 
   grid.innerHTML = items.map(a => {
     const free = isFree(a.cost);
     const costClass = free ? "free" : "low";
+    const tr = translations[a.name];
+    const name = lang === "es" && tr ? tr.name : a.name;
+    const desc = lang === "es" && tr ? tr.desc : a.desc;
     return `
       <div class="card">
         <div class="card-top">
-          <div class="card-title">${a.name}</div>
+          <div class="card-title">${name}</div>
           <span class="badge-cost ${costClass}">${a.cost}</span>
         </div>
         <div class="card-meta">
@@ -937,25 +1085,23 @@ function renderCards() {
           <div class="meta-row">${iconPin()} ${a.location}</div>
           <div class="meta-row">${iconPerson()} ${a.ages}</div>
         </div>
-        <div class="card-desc">${a.desc}</div>
+        <div class="card-desc">${desc}</div>
         <div class="card-footer">
           <span class="badge-cat">${a.category}</span>
-          <a class="card-link" href="${a.link}" target="_blank" rel="noopener">More info →</a>
+          <a class="card-link" href="${a.link}" target="_blank" rel="noopener">${t.moreInfo}</a>
         </div>
       </div>`;
   }).join("");
 }
 
-// Filter chips — attach to document so all filter rows are covered
+// Filter chips
 document.addEventListener("click", e => {
   const chip = e.target.closest(".chip");
   if (!chip) return;
   const { filter, value } = chip.dataset;
   if (!filter) return;
-
   document.querySelectorAll(`[data-filter="${filter}"]`).forEach(c => c.classList.remove("active"));
   chip.classList.add("active");
-
   if (filter === "cost") costFilter = value;
   if (filter === "county") countyFilter = value;
   if (filter === "age") ageFilter = value;
