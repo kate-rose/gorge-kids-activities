@@ -338,7 +338,7 @@
     <span class="filter-label">Cost</span>
     <button class="chip cost-free active" data-filter="cost" data-value="all">All</button>
     <button class="chip cost-free" data-filter="cost" data-value="free">Free</button>
-    <button class="chip cost-low" data-filter="cost" data-value="low">Low cost</button>
+    <button class="chip cost-low" data-filter="cost" data-value="low">Under $10</button>
   </div>
   <div class="filter-row" style="margin-top:8px" id="filter-row-county">
     <span class="filter-label">County</span>
@@ -652,6 +652,150 @@ const activities = [
     link: "https://visithoodriver.com/event/families-in-the-park-free-concerts/2024-08-22/",
     counties: ["Hood River"],
     ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "CASS Art Hives",
+    category: "Arts",
+    dates: "Ongoing (check schedule)",
+    location: "198 SW 2nd St, Stevenson (shared with SKY Teen Center)",
+    ages: "All Ages (under 12 need adult)",
+    cost: "FREE",
+    desc: "Open studio sessions at the Community Art Studio of Skamania — all materials provided. Drop in, make art, no experience needed. Facilitated Gatherings and Teen Art Club also free.",
+    link: "https://www.cassmobileart.org/",
+    counties: ["Skamania"],
+    ageGroups: ["kids", "teens"]
+  },
+  {
+    name: "Bonneville Dam & Fish Hatchery",
+    category: "Community/Nature",
+    dates: "Daily · Hatchery 7:30 AM–8 PM, Visitor Center 9 AM–5 PM",
+    location: "Cascade Locks, OR",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "See Herman the Giant Sturgeon, watch salmon in viewing tanks and fish ladders, and tour the dam visitor center. One of the best free family outings in the Gorge.",
+    link: "https://www.nwp.usace.army.mil/bonneville/",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Stevenson Farmers Market",
+    category: "Community/Nature",
+    dates: "Saturdays · 10 AM–2 PM · mid-June through mid-October",
+    location: "Stevenson Waterfront",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Free weekly market with produce, live music, and handmade goods. Little Foot Early Learning Center runs free kids' activities each week. Power of Produce gives every kid a $2 token to spend on produce.",
+    link: "https://www.stevensonmainstreet.org/farmersmarket",
+    counties: ["Skamania"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Walking Man Thursday Music",
+    category: "Community/Nature",
+    dates: "Thursdays · 6–8 PM · May–September",
+    location: "Walking Man Brewing, Stevenson",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Free live music in the beer garden every Thursday evening. All ages and leashed dogs welcome.",
+    link: "https://www.visitstevensonwa.com/summerevents/",
+    counties: ["Skamania"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Hood River Farmers Market",
+    category: "Community/Nature",
+    dates: "Saturdays · 9 AM–1 PM · May–November",
+    location: "5th & Columbia St, Hood River",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "55+ vendors at peak season with local produce, food, handmade goods, and live music. Free to attend.",
+    link: "https://gorgegrown.com/hoodriver/",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Skamania County Fair & Timber Carnival",
+    category: "Community/Nature",
+    dates: "Aug 14–17, 2026",
+    location: "Skamania County Fairgrounds, Stevenson",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Free admission county fair with animals, 4-H exhibits, timber carnival, parade, live entertainment, and family activities.",
+    link: "https://www.skamaniacounty.org/departments-offices/events-and-recreation/events-festivals",
+    counties: ["Skamania"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Pacific Crest Trail Days",
+    category: "Community/Nature",
+    dates: "Aug 14–15, 2026",
+    location: "Marine Park, Cascade Locks",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Two-day outdoor festival celebrating the PCT. 100+ exhibitors, gear expo, games, presentations, and raffles. Free admission (suggested donation: non-perishable food item).",
+    link: "https://www.pctdays.com/",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Columbia Gorge Junior Kayak Club",
+    category: "Community/Nature",
+    dates: "Weekly summer sessions",
+    location: "Klickitat & White Salmon Rivers + Hood River Aquatic Center",
+    ages: "Youth (all skill levels)",
+    cost: "FREE",
+    desc: "Completely free youth kayaking — pool roll sessions, weekly evening river paddles on the Klickitat and White Salmon, and skill-matched River Days on Saturdays. Gear available to borrow.",
+    link: "https://www.columbiagorgejuniorkayakclub.org/",
+    counties: ["Hood River", "Klickitat"],
+    ageGroups: ["kids", "teens"]
+  },
+  {
+    name: "Gorge White House U-Pick",
+    category: "Community/Nature",
+    dates: "June–October (varies by crop)",
+    location: "Hood River Valley Fruit Loop",
+    ages: "All Ages",
+    cost: "FREE to visit · u-pick by weight",
+    desc: "30+ acres of u-pick strawberries, cherries, blueberries, and more on the Hood River Fruit Loop. No reservation needed — kids play on the grass while you pick. Food cart has kid-friendly fare.",
+    link: "https://www.hoodriverfruitloop.com/",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Wonderworks Children's Museum",
+    category: "Arts",
+    dates: "Ongoing · check website for hours",
+    location: "The Dalles, OR",
+    ages: "Ages 0–10",
+    cost: "$5/person",
+    desc: "Hands-on play museum with Art Area, Farm House, Vet Clinic, Train Station, Puppet Show, Grocery Store, and indoor playset. EBT/WIC: $2/person. Free Kids Yoga on select Saturdays.",
+    link: "https://wonderworksgorge.org/",
+    counties: ["Wasco"],
+    ageGroups: ["babies", "kids"]
+  },
+  {
+    name: "Columbia Gorge Discovery Center",
+    category: "Community/Nature",
+    dates: "Daily · 9 AM–5 PM",
+    location: "5000 Discovery Drive, The Dalles",
+    ages: "All Ages",
+    cost: "$7 (ages 6–16) · FREE under 5",
+    desc: "Natural history and geology museum with live raptor presentations daily at 11 AM and 2 PM. Free passes available through library Discover & Go program. Blue Star Museums: free for active military families.",
+    link: "https://www.gorgediscovery.org/",
+    counties: ["Wasco"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Maryhill Museum of Art",
+    category: "Arts",
+    dates: "Mar 15–Nov 15 · 10 AM–5 PM daily",
+    location: "35 Maryhill Museum Drive, Goldendale",
+    ages: "All Ages",
+    cost: "$10 (ages 7–18) · FREE under 6",
+    desc: "Stunning art museum on the Columbia with Rodin sculptures, Native American art, and chess sets. EBT: $5/person (up to 4). Free for Indigenous visitors daily. Free library passes via Discover & Go.",
+    link: "https://www.maryhillmuseum.org/",
+    counties: ["Klickitat"],
+    ageGroups: ["babies", "kids", "teens"]
   }
 ];
 
@@ -663,7 +807,7 @@ let searchQuery = "";
 
 function isFree(cost) {
   const c = cost.toUpperCase();
-  return c === "FREE" || c === "FREE / $25";
+  return c.startsWith("FREE") && !c.match(/\$[1-9]/);
 }
 
 function getFiltered() {
