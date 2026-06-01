@@ -355,6 +355,16 @@
     <button class="chip" data-filter="age" data-value="kids">Kids (4–12)</button>
     <button class="chip" data-filter="age" data-value="teens">Teens</button>
   </div>
+  <div class="filter-row" style="margin-top:8px" id="filter-row-type">
+    <span class="filter-label">Type</span>
+    <button class="chip active" data-filter="type" data-value="all">All</button>
+    <button class="chip" data-filter="type" data-value="concerts">Concerts</button>
+    <button class="chip" data-filter="type" data-value="library">Library</button>
+    <button class="chip" data-filter="type" data-value="outdoors">Outdoors</button>
+    <button class="chip" data-filter="type" data-value="arts">Arts & Crafts</button>
+    <button class="chip" data-filter="type" data-value="swimming">Swimming</button>
+    <button class="chip" data-filter="type" data-value="food">Food</button>
+  </div>
 </div>
 
 <div class="results-bar" id="results-bar"></div>
@@ -362,8 +372,7 @@
 <div class="grid" id="grid"></div>
 
 <script>
-// counties: array of county names the activity is available in; "Regional" means gorge-wide
-// ageGroups: array of "babies" (0-3), "kids" (4-12), "teens" (13-17)
+// counties: counties served; ageGroups: "babies","kids","teens"; types: "library","concerts","outdoors","arts","swimming","food"
 const activities = [
   {
     name: "2026 Summer Reading Challenge",
@@ -375,7 +384,8 @@ const activities = [
     desc: "Read or listen to diverse media formats June 15–Aug 15 to earn prizes.",
     link: "https://fvrl.beanstack.org/reader365",
     counties: ["Skamania", "Klickitat"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["library"]
   },
   {
     name: "Kids Create",
@@ -387,7 +397,8 @@ const activities = [
     desc: "Hands-on STEM, building, and craft creation event.",
     link: "https://fvrlibraries.bibliocommons.com/v2/events/69c2fd8c491b809c6f22b62b",
     counties: ["Skamania"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["library", "arts"]
   },
   {
     name: "Teen & Adult Create",
@@ -399,7 +410,8 @@ const activities = [
     desc: "Guided creative arts and craft session.",
     link: "https://fvrlibraries.bibliocommons.com/v2/events/69bda61f1e64afd01e639de6",
     counties: ["Skamania"],
-    ageGroups: ["teens"]
+    ageGroups: ["teens"],
+    types: ["library", "arts"]
   },
   {
     name: "Bookmark Contest Celebration",
@@ -411,7 +423,8 @@ const activities = [
     desc: "Community celebration of summer reading bookmark designs — district winners revealed, new bookmarks on display, refreshments.",
     link: "https://fvrlibraries.bibliocommons.com/v2/events/69a228d08b29ea2800d30180",
     counties: ["Skamania"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["library"]
   },
   {
     name: "Family Movie Matinee",
@@ -423,7 +436,8 @@ const activities = [
     desc: "Watch a family-friendly film in an air-conditioned space.",
     link: "https://fvrlibraries.bibliocommons.com/v2/events/69bc19231e64afd01e634ebd",
     counties: ["Klickitat"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["library"]
   },
   {
     name: "Fire Preparedness with Plants",
@@ -435,7 +449,8 @@ const activities = [
     desc: "Environmental safety and botany workshop.",
     link: "https://fvrlibraries.bibliocommons.com/v2/events/69d03a091e64afd01e66d1e1",
     counties: ["Klickitat"],
-    ageGroups: ["teens"]
+    ageGroups: ["teens"],
+    types: ["library", "outdoors"]
   },
   {
     name: "Summer Reading Program",
@@ -447,7 +462,8 @@ const activities = [
     desc: "Log reading time in 30-min increments to win prizes and raffle tickets.",
     link: "https://hoodriverlibrary.org/summer-reading-program/",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["library"]
   },
   {
     name: "Crazy Craft Club: Woven Dino Bag",
@@ -459,7 +475,8 @@ const activities = [
     desc: "Hands-on Makerspace engineering and craft project.",
     link: "https://www.wascocountylibrary.com/event/crazy-craft-club-20793",
     counties: ["Wasco"],
-    ageGroups: ["kids"]
+    ageGroups: ["kids"],
+    types: ["library", "arts"]
   },
   {
     name: "Fun Friday: Bubble Madness",
@@ -471,7 +488,8 @@ const activities = [
     desc: "Art, crafts, and active games.",
     link: "https://www.wascocountylibrary.com/event/fun-fridays-3134",
     counties: ["Wasco"],
-    ageGroups: ["kids"]
+    ageGroups: ["kids"],
+    types: ["library", "arts"]
   },
   {
     name: "Teen Fun Fridays: Summer Crafts",
@@ -483,7 +501,8 @@ const activities = [
     desc: "Teen-specific summer crafting and socialization.",
     link: "https://www.wascocountylibrary.com/event/teens-fun-fridays-summer-edition-12375",
     counties: ["Wasco"],
-    ageGroups: ["teens"]
+    ageGroups: ["teens"],
+    types: ["library", "arts"]
   },
   {
     name: "VR Gaming",
@@ -495,7 +514,8 @@ const activities = [
     desc: "Virtual reality gaming and technology session.",
     link: "https://www.wascocountylibrary.com/teens",
     counties: ["Wasco"],
-    ageGroups: ["teens"]
+    ageGroups: ["teens"],
+    types: ["library"]
   },
   {
     name: "Bookmobile at Wonderworks",
@@ -507,7 +527,8 @@ const activities = [
     desc: "Browsing, holds pickup, and card registration.",
     link: "https://wonderworksgorge.org/programs-events",
     counties: ["Wasco"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["library"]
   },
   {
     name: "Rhinegarten Park Splash Pad",
@@ -519,7 +540,8 @@ const activities = [
     desc: "Zero-barrier, unstructured water play integrated with the local park.",
     link: "https://www.whitesalmonwa.gov/parksrec/page/splash-pad",
     counties: ["Klickitat"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["swimming"]
   },
   {
     name: "Thompson Park Splash Pad",
@@ -531,7 +553,8 @@ const activities = [
     desc: "Free automated spray park; activates when air temperature exceeds 75°F.",
     link: "https://www.nwprd.org/splash-pad",
     counties: ["Wasco"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["swimming"]
   },
   {
     name: "NWCPRD Active Rx Program",
@@ -543,7 +566,8 @@ const activities = [
     desc: "OHP/SNAP/WIC recipients get free swim lessons or $25 summer family season passes.",
     link: "https://www.nwprd.org/active-rx-program",
     counties: ["Wasco"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["swimming"]
   },
   {
     name: "Saturday $1 Open Swim",
@@ -555,7 +579,8 @@ const activities = [
     desc: "Deeply discounted open recreational swim every Saturday.",
     link: "https://hoodriverparksandrec.org/spring-schedule-26",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["swimming"]
   },
   {
     name: "Goldendale Pool Youth Swim",
@@ -567,7 +592,8 @@ const activities = [
     desc: "Single admission for youth. Children under 3 free with a paying adult.",
     link: "https://centralklickitatparksandrecreation.com/pool/",
     counties: ["Klickitat"],
-    ageGroups: ["kids", "teens"]
+    ageGroups: ["kids", "teens"],
+    types: ["swimming"]
   },
   {
     name: "North Wasco Summer Meals",
@@ -579,7 +605,8 @@ const activities = [
     desc: "USDA SFSP daily summer meal distributions via mobile routes for all youth.",
     link: "https://www.nwasco.k12.or.us/apps/news/article/2080242",
     counties: ["Wasco"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["food"]
   },
   {
     name: "Hood River Summer Meals",
@@ -591,7 +618,34 @@ const activities = [
     desc: "Federally funded free nutritious meals and snacks during summer.",
     link: "https://www.hoodriver.k12.or.us/departments/nutrition-services/summer-meal-program",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["food"]
+  },
+  {
+    name: "SUN Bucks (WA Summer EBT)",
+    category: "Food Programs",
+    dates: "Summer 2026 · Cards mailed starting June",
+    location: "Skamania & Klickitat Counties (WA)",
+    ages: "School-age children",
+    cost: "FREE",
+    desc: "$120 per eligible child loaded onto an EBT-style card, usable at any grocery store. Auto-enrolled if your household receives SNAP or TANF. Families with kids at CEP schools (like Stevenson-Carson) can also apply.",
+    link: "https://www.dshs.wa.gov/sunbucks",
+    counties: ["Skamania", "Klickitat"],
+    ageGroups: ["kids", "teens"],
+    types: ["food"]
+  },
+  {
+    name: "Find Free Summer Meals Near You",
+    category: "Food Programs",
+    dates: "Ongoing · Sites added throughout summer",
+    location: "Columbia River Gorge Region",
+    ages: "Ages 1–18",
+    cost: "FREE",
+    desc: "Use the USDA site finder to locate free summer meal sites — no paperwork, no income test required. New sites are added all summer. Also call or text 211, or text FOOD to 914-342-7744.",
+    link: "https://www.fns.usda.gov/sfsp/sitefinder",
+    counties: ["Skamania", "Klickitat", "Hood River", "Wasco"],
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["food"]
   },
   {
     name: "Discover & Go / Experience Pass",
@@ -600,10 +654,11 @@ const activities = [
     location: "FVRL & Hood River Library Websites",
     ages: "All Ages",
     cost: "FREE",
-    desc: "Free digital admission passes to Gorge Discovery Center, Maryhill Museum, and more.",
+    desc: "Free digital admission passes to Gorge Discovery Center, Maryhill Museum, and more — check out with your library card.",
     link: "https://www.fvrl.org/explore/experience-pass/",
     counties: ["Skamania", "Klickitat", "Hood River", "Wasco"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["outdoors", "arts"]
   },
   {
     name: "Summer of Freedom Transit Pass",
@@ -615,7 +670,8 @@ const activities = [
     desc: "Youth ride transit free, earn prizes, and get rewards for reading on the bus.",
     link: "https://gorgetransit.com/summer-of-freedom/",
     counties: ["Skamania", "Klickitat", "Hood River", "Wasco"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["outdoors"]
   },
   {
     name: "Junior Ranger Program",
@@ -627,7 +683,8 @@ const activities = [
     desc: "Educational activities, nature hikes, and ranger talks to earn a conservation badge.",
     link: "https://stateparks.oregon.gov/index.cfm?do=things-to-do.junior-ranger",
     counties: ["Skamania", "Hood River"],
-    ageGroups: ["kids"]
+    ageGroups: ["kids"],
+    types: ["outdoors"]
   },
   {
     name: "Stevenson Waterfront Concerts",
@@ -639,7 +696,8 @@ const activities = [
     desc: "Live outdoor music on the riverfront throughout the summer.",
     link: "https://business.skamania.org/events/Details/stevenson-waterfront-public-stage-live-music-summer-series-1321490?sourceTypeId=Hub",
     counties: ["Skamania"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["concerts"]
   },
   {
     name: "Families in the Park Concerts",
@@ -651,7 +709,8 @@ const activities = [
     desc: "Live music and community gathering on Thursday evenings throughout August.",
     link: "https://visithoodriver.com/event/families-in-the-park-free-concerts/all/",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["concerts"]
   },
   {
     name: "CASS Art Hives",
@@ -663,7 +722,8 @@ const activities = [
     desc: "Open studio sessions at the Community Art Studio of Skamania — all materials provided. Drop in, make art, no experience needed. Facilitated Gatherings and Teen Art Club also free.",
     link: "https://www.cassmobileart.org/",
     counties: ["Skamania"],
-    ageGroups: ["kids", "teens"]
+    ageGroups: ["kids", "teens"],
+    types: ["arts"]
   },
   {
     name: "Bonneville Dam & Fish Hatchery",
@@ -675,7 +735,8 @@ const activities = [
     desc: "See Herman the Giant Sturgeon, watch salmon in viewing tanks and fish ladders, and tour the dam visitor center. One of the best free family outings in the Gorge.",
     link: "https://www.nwp.usace.army.mil/bonneville/",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["outdoors"]
   },
   {
     name: "Stevenson Farmers Market",
@@ -687,7 +748,8 @@ const activities = [
     desc: "Free weekly market with produce, live music, and handmade goods. Little Foot Early Learning Center runs free kids' activities each week. Power of Produce gives every kid a $2 token to spend on produce.",
     link: "https://www.stevensonmainstreet.org/farmersmarket",
     counties: ["Skamania"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["concerts", "outdoors", "food"]
   },
   {
     name: "Walking Man Thursday Music",
@@ -699,7 +761,8 @@ const activities = [
     desc: "Free live music in the beer garden every Thursday evening. All ages and leashed dogs welcome.",
     link: "https://www.visitstevensonwa.com/summerevents/",
     counties: ["Skamania"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["concerts"]
   },
   {
     name: "Hood River Farmers Market",
@@ -711,7 +774,8 @@ const activities = [
     desc: "55+ vendors at peak season with local produce, food, handmade goods, and live music. Free to attend.",
     link: "https://gorgegrown.com/hoodriver/",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["outdoors", "food"]
   },
   {
     name: "Skamania County Fair & Timber Carnival",
@@ -723,7 +787,8 @@ const activities = [
     desc: "Free admission county fair with animals, 4-H exhibits, timber carnival, parade, live entertainment, and family activities.",
     link: "https://www.skamaniacounty.org/departments-offices/events-and-recreation/events-festivals",
     counties: ["Skamania"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["concerts", "outdoors"]
   },
   {
     name: "Pacific Crest Trail Days",
@@ -735,7 +800,8 @@ const activities = [
     desc: "Two-day outdoor festival celebrating the PCT. 100+ exhibitors, gear expo, games, presentations, and raffles. Free admission (suggested donation: non-perishable food item).",
     link: "https://www.pctdays.com/",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["outdoors"]
   },
   {
     name: "Columbia Gorge Junior Kayak Club",
@@ -747,7 +813,8 @@ const activities = [
     desc: "Completely free youth kayaking — pool roll sessions, weekly evening river paddles on the Klickitat and White Salmon, and skill-matched River Days on Saturdays. Gear available to borrow.",
     link: "https://www.columbiagorgejuniorkayakclub.org/our-programs",
     counties: ["Hood River", "Klickitat"],
-    ageGroups: ["kids", "teens"]
+    ageGroups: ["kids", "teens"],
+    types: ["outdoors", "swimming"]
   },
   {
     name: "Gorge White House U-Pick",
@@ -759,7 +826,8 @@ const activities = [
     desc: "30+ acres of u-pick strawberries, cherries, blueberries, and more on the Hood River Fruit Loop. No reservation needed — kids play on the grass while you pick. Food cart has kid-friendly fare.",
     link: "https://www.thegorgewhitehouse.com/fruit",
     counties: ["Hood River"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["outdoors", "food"]
   },
   {
     name: "Wonderworks Children's Museum",
@@ -771,7 +839,8 @@ const activities = [
     desc: "Hands-on play museum with Art Area, Farm House, Vet Clinic, Train Station, Puppet Show, Grocery Store, and indoor playset. EBT/WIC: $2/person. Free Kids Yoga on select Saturdays.",
     link: "https://wonderworksgorge.org/",
     counties: ["Wasco"],
-    ageGroups: ["babies", "kids"]
+    ageGroups: ["babies", "kids"],
+    types: ["arts"]
   },
   {
     name: "Columbia Gorge Discovery Center",
@@ -783,7 +852,8 @@ const activities = [
     desc: "Natural history and geology museum with live raptor presentations daily at 11 AM and 2 PM. Free passes available through library Discover & Go program. Blue Star Museums: free for active military families.",
     link: "https://www.gorgediscovery.org/",
     counties: ["Wasco"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["outdoors"]
   },
   {
     name: "Maryhill Museum of Art",
@@ -795,7 +865,8 @@ const activities = [
     desc: "Stunning art museum on the Columbia with Rodin sculptures, Native American art, and chess sets. EBT: $5/person (up to 4). Free for Indigenous visitors daily. Free library passes via Discover & Go.",
     link: "https://www.maryhillmuseum.org/",
     counties: ["Klickitat"],
-    ageGroups: ["babies", "kids", "teens"]
+    ageGroups: ["babies", "kids", "teens"],
+    types: ["arts"]
   }
 ];
 
@@ -803,6 +874,7 @@ const activities = [
 let costFilter = "all";
 let countyFilter = "all";
 let ageFilter = "all";
+let typeFilter = "all";
 let searchQuery = "";
 
 function isFree(cost) {
@@ -816,6 +888,7 @@ function getFiltered() {
     if (costFilter === "low" && isFree(a.cost)) return false;
     if (countyFilter !== "all" && !a.counties.includes(countyFilter)) return false;
     if (ageFilter !== "all" && !a.ageGroups.includes(ageFilter)) return false;
+    if (typeFilter !== "all" && !a.types.includes(typeFilter)) return false;
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       if (
@@ -886,6 +959,7 @@ document.addEventListener("click", e => {
   if (filter === "cost") costFilter = value;
   if (filter === "county") countyFilter = value;
   if (filter === "age") ageFilter = value;
+  if (filter === "type") typeFilter = value;
   renderCards();
 });
 
