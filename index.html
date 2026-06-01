@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free & Low Cost Gorge Kids Activities 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f0ece3;
+    --cream-dark: #e5e0d5;
+    --ink: #1a1714;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8480;
+    --navy: #1c3a4a;
+    --navy-light: #2e5468;
+    --amber: #e8b84b;
+    --amber-dark: #c99a2e;
+    --amber-pale: #fdf4d8;
+    --green: #2d6a4f;
+    --green-pale: #d4eddf;
+    --white: #ffffff;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 22px 16px 18px;
+    text-align: center;
+  }
+
+  header .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+
+  header h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+
+  header p {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    font-weight: 400;
+  }
+
+  .controls {
+    background: var(--white);
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--cream-dark);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(26,23,20,0.08);
+  }
+
+  .search-wrap {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-light);
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    padding: 9px 12px 9px 34px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    background: var(--cream);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  #search:focus { border-color: var(--navy); }
+  #search::placeholder { color: var(--ink-light); }
+
+  .filter-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    padding-right: 2px;
+    white-space: nowrap;
+  }
+
+  .chip {
+    padding: 5px 13px;
+    border-radius: 999px;
+    border: 1.5px solid var(--cream-dark);
+    background: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    color: var(--ink-mid);
+  }
+
+  .chip:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--white);
+  }
+
+  .chip.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  .chip.cost-low.active {
+    background: var(--amber-dark);
+    border-color: var(--amber-dark);
+    color: var(--white);
+  }
+
+  .results-bar {
+    padding: 10px 16px 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .grid {
+    padding: 8px 12px 28px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 600px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 14px;
+    border: 1.5px solid var(--cream-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(26,23,20,0.1);
+    transform: translateY(-1px);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.2;
+  }
+
+  .badge-cost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-cost.free {
+    background: var(--green-pale);
+    color: var(--green);
+  }
+
+  .badge-cost.low {
+    background: var(--amber-pale);
+    color: var(--amber-dark);
+  }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--ink-light);
+  }
+
+  .meta-row svg { flex-shrink: 0; margin-top: 1px; }
+
+  .card-desc {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.45;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+    padding-top: 8px;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .badge-cat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--ink-light);
+    border: 1px solid var(--cream-dark);
+  }
+
+  .card-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    color: var(--amber-dark);
+    text-decoration: underline;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--ink-light);
+    grid-column: 1 / -1;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .no-results span { font-size: 2rem; display: block; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">❋ Open Gorge · Summer 2026</div>
+  <h1>Gorge Kids Activities</h1>
+  <p>Free &amp; low-cost fun across Skamania, Klickitat, Hood River &amp; Wasco counties</p>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="search" id="search" placeholder="Search activities, locations…" autocomplete="off">
+  </div>
+
+  <div class="filter-row" id="filter-row">
+    <span class="filter-label">Cost</span>
+    <button class="chip cost-free active" data-filter="cost" data-value="all">All</button>
+    <button class="chip cost-free" data-filter="cost" data-value="free">Free</button>
+    <button class="chip cost-low" data-filter="cost" data-value="low">Low cost</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px" id="filter-row-county">
+    <span class="filter-label">County</span>
+    <button class="chip active" data-filter="county" data-value="all">All</button>
+    <button class="chip" data-filter="county" data-value="Skamania">Skamania</button>
+    <button class="chip" data-filter="county" data-value="Klickitat">Klickitat</button>
+    <button class="chip" data-filter="county" data-value="Hood River">Hood River</button>
+    <button class="chip" data-filter="county" data-value="Wasco">Wasco</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px" id="filter-row-age">
+    <span class="filter-label">Ages</span>
+    <button class="chip active" data-filter="age" data-value="all">All</button>
+    <button class="chip" data-filter="age" data-value="babies">Babies/Toddlers</button>
+    <button class="chip" data-filter="age" data-value="kids">Kids (4–12)</button>
+    <button class="chip" data-filter="age" data-value="teens">Teens</button>
+  </div>
+</div>
+
+<div class="results-bar" id="results-bar"></div>
+
+<div class="grid" id="grid"></div>
+
+<script>
+// counties: array of county names the activity is available in; "Regional" means gorge-wide
+// ageGroups: array of "babies" (0-3), "kids" (4-12), "teens" (13-17)
+const activities = [
+  {
+    name: "2026 Summer Reading Challenge",
+    category: "Public Library",
+    dates: "June 15 – Aug 15",
+    location: "FVRL Branches (Stevenson, White Salmon, North Bonneville)",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Read or listen to diverse media formats June 15–Aug 15 to earn prizes.",
+    link: "https://www.fvrl.org/summer-reading/",
+    counties: ["Skamania", "Klickitat"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Kids Create",
+    category: "Public Library",
+    dates: "June 3, 2026 · 2–4 PM",
+    location: "Stevenson Community Library",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Hands-on STEM, building, and craft creation event.",
+    link: "https://www.fvrl.org/locations/fv-st/",
+    counties: ["Skamania"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Teen & Adult Create",
+    category: "Public Library",
+    dates: "June 2, 2026 · 4–5:45 PM",
+    location: "Stevenson Community Library",
+    ages: "Teens/Adults",
+    cost: "FREE",
+    desc: "Guided creative arts and craft session.",
+    link: "https://www.fvrl.org/locations/fv-st/",
+    counties: ["Skamania"],
+    ageGroups: ["teens"]
+  },
+  {
+    name: "Bookmark Contest Celebration",
+    category: "Public Library",
+    dates: "June 6, 2026 · 2 PM",
+    location: "Stevenson Community Library",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Community celebration of summer reading bookmark designs.",
+    link: "https://www.fvrl.org/locations/fv-st/",
+    counties: ["Skamania"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Family Movie Matinee",
+    category: "Public Library",
+    dates: "June 6, 2026 · 2 PM",
+    location: "White Salmon Valley Community Library",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Watch a family-friendly film in an air-conditioned space.",
+    link: "https://www.fvrl.org/locations/fv-ws/",
+    counties: ["Klickitat"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Fire Preparedness with Plants",
+    category: "Public Library",
+    dates: "June 9, 2026 · 6:30–7:30 PM",
+    location: "White Salmon Valley Community Library",
+    ages: "Teens/Adults",
+    cost: "FREE",
+    desc: "Environmental safety and botany workshop.",
+    link: "https://www.fvrl.org/locations/fv-ws/",
+    counties: ["Klickitat"],
+    ageGroups: ["teens"]
+  },
+  {
+    name: "Summer Reading Program",
+    category: "Public Library",
+    dates: "June 17 – Aug 12",
+    location: "Hood River, Cascade Locks, Parkdale Branches",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Log reading time in 30-min increments to win prizes and raffle tickets.",
+    link: "https://hoodriverlibrary.org/summer-reading-program/",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Crazy Craft Club: Woven Dino Bag",
+    category: "Public Library",
+    dates: "June 2, 2026 · 4 PM",
+    location: "The Dalles Public Library (Makerspace)",
+    ages: "Ages 8–12",
+    cost: "FREE",
+    desc: "Hands-on Makerspace engineering and craft project.",
+    link: "https://columbiacommunityconnection.com/the-dalles/this-week-at-the-dalles-library-june-1-2026",
+    counties: ["Wasco"],
+    ageGroups: ["kids"]
+  },
+  {
+    name: "Fun Friday: Bubble Madness",
+    category: "Public Library",
+    dates: "June 5, 2026 · 3:30–4:30 PM",
+    location: "The Dalles Public Library (Children's Wing)",
+    ages: "Ages 5–10",
+    cost: "FREE",
+    desc: "Art, crafts, and active games.",
+    link: "https://columbiacommunityconnection.com/the-dalles/this-week-at-the-dalles-library-june-1-2026",
+    counties: ["Wasco"],
+    ageGroups: ["kids"]
+  },
+  {
+    name: "Teen Fun Fridays: Summer Crafts",
+    category: "Public Library",
+    dates: "June 5, 2026 · 3:30 PM",
+    location: "The Dalles Public Library (Teen Room)",
+    ages: "Teens",
+    cost: "FREE",
+    desc: "Teen-specific summer crafting and socialization.",
+    link: "https://columbiacommunityconnection.com/the-dalles/this-week-at-the-dalles-library-june-1-2026",
+    counties: ["Wasco"],
+    ageGroups: ["teens"]
+  },
+  {
+    name: "VR Gaming",
+    category: "Public Library",
+    dates: "June 6, 2026 · 1–3 PM",
+    location: "The Dalles Public Library (Teen Room)",
+    ages: "Teens",
+    cost: "FREE",
+    desc: "Virtual reality gaming and technology session.",
+    link: "https://columbiacommunityconnection.com/the-dalles/this-week-at-the-dalles-library-june-1-2026",
+    counties: ["Wasco"],
+    ageGroups: ["teens"]
+  },
+  {
+    name: "Bookmobile at Wonderworks",
+    category: "Public Library",
+    dates: "Every Thursday · 11:15 AM",
+    location: "Wonderworks Children's Museum, The Dalles",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Browsing, holds pickup, and card registration.",
+    link: "https://wonderworksgorge.org/programs-events",
+    counties: ["Wasco"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Rhinegarten Park Splash Pad",
+    category: "Parks & Rec",
+    dates: "Ongoing",
+    location: "Rhinegarten Park, White Salmon",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Zero-barrier, unstructured water play integrated with the local park.",
+    link: "https://www.whitesalmonwa.gov/parksrec/page/splash-pad",
+    counties: ["Klickitat"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Thompson Park Splash Pad",
+    category: "Parks & Rec",
+    dates: "Ongoing (activates above 75°F)",
+    location: "NWCPRD Aquatic Center, The Dalles",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Free automated spray park; activates when air temperature exceeds 75°F.",
+    link: "https://www.nwprd.org/splash-pad",
+    counties: ["Wasco"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "NWCPRD Active Rx Program",
+    category: "Parks & Rec",
+    dates: "Ongoing",
+    location: "The Dalles Aquatic Center",
+    ages: "All Ages",
+    cost: "FREE / $25",
+    desc: "OHP/SNAP/WIC recipients get free swim lessons or $25 summer family season passes.",
+    link: "https://www.nwprd.org/active-rx-program",
+    counties: ["Wasco"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Saturday $1 Open Swim",
+    category: "Parks & Rec",
+    dates: "Every Saturday · 12–5 PM",
+    location: "Hood River Aquatic Center",
+    ages: "All Ages",
+    cost: "$1",
+    desc: "Deeply discounted open recreational swim every Saturday.",
+    link: "https://hoodriverparksandrec.org/spring-schedule-26",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Goldendale Pool Youth Swim",
+    category: "Parks & Rec",
+    dates: "Ongoing",
+    location: "Goldendale Swimming Pool (CKPRD)",
+    ages: "Ages 4–17",
+    cost: "$4",
+    desc: "Single admission for youth. Children under 3 free with a paying adult.",
+    link: "https://centralklickitatparksandrecreation.com/pool/",
+    counties: ["Klickitat"],
+    ageGroups: ["kids", "teens"]
+  },
+  {
+    name: "North Wasco Summer Meals",
+    category: "Food Programs",
+    dates: "Ongoing",
+    location: "The Dalles (various mobile route stops)",
+    ages: "Ages 1–18",
+    cost: "FREE",
+    desc: "USDA SFSP daily summer meal distributions via mobile routes for all youth.",
+    link: "https://www.nwasco.k12.or.us/apps/news/article/2080242",
+    counties: ["Wasco"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Hood River Summer Meals",
+    category: "Food Programs",
+    dates: "Ongoing",
+    location: "Hood River County (various sites)",
+    ages: "Ages 1–18",
+    cost: "FREE",
+    desc: "Federally funded free nutritious meals and snacks during summer.",
+    link: "https://www.hoodriver.k12.or.us/departments/nutrition-services/summer-meal-program",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Discover & Go / Experience Pass",
+    category: "Community/Nature",
+    dates: "Ongoing",
+    location: "FVRL & Hood River Library Websites",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Free digital admission passes to Gorge Discovery Center, Maryhill Museum, and more.",
+    link: "https://portlandlivingonthecheap.com/free-cultural-passes/",
+    counties: ["Skamania", "Klickitat", "Hood River", "Wasco"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Summer of Freedom Transit Pass",
+    category: "Community/Nature",
+    dates: "Ongoing",
+    location: "Regional Transit (The Link, CAT, MATS)",
+    ages: "Ages 0–17",
+    cost: "FREE",
+    desc: "Youth ride transit free, earn prizes, and get rewards for reading on the bus.",
+    link: "https://gorgetransit.com/summer-of-freedom/",
+    counties: ["Skamania", "Klickitat", "Hood River", "Wasco"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Junior Ranger Program",
+    category: "Community/Nature",
+    dates: "Ongoing",
+    location: "Ainsworth State Park & Regional OR Parks",
+    ages: "Ages 6–12",
+    cost: "FREE",
+    desc: "Educational activities, nature hikes, and ranger talks to earn a conservation badge.",
+    link: "https://stateparks.oregon.gov/index.cfm?do=things-to-do.junior-ranger",
+    counties: ["Skamania", "Hood River"],
+    ageGroups: ["kids"]
+  },
+  {
+    name: "Stevenson Waterfront Concerts",
+    category: "Community/Nature",
+    dates: "Saturdays · ~5:30–9 PM",
+    location: "Stevenson Waterfront",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Live outdoor music on the riverfront throughout the summer.",
+    link: "https://business.skamania.org/events",
+    counties: ["Skamania"],
+    ageGroups: ["babies", "kids", "teens"]
+  },
+  {
+    name: "Families in the Park Concerts",
+    category: "Community/Nature",
+    dates: "Thursday evenings in August 2026",
+    location: "Jackson Park, Hood River",
+    ages: "All Ages",
+    cost: "FREE",
+    desc: "Live music and community gathering on Thursday evenings throughout August.",
+    link: "https://visithoodriver.com/event/families-in-the-park-free-concerts/2024-08-22/",
+    counties: ["Hood River"],
+    ageGroups: ["babies", "kids", "teens"]
+  }
+];
+
+// State
+let costFilter = "all";
+let countyFilter = "all";
+let ageFilter = "all";
+let searchQuery = "";
+
+function isFree(cost) {
+  const c = cost.toUpperCase();
+  return c === "FREE" || c === "FREE / $25";
+}
+
+function getFiltered() {
+  return activities.filter(a => {
+    if (costFilter === "free" && !isFree(a.cost)) return false;
+    if (costFilter === "low" && isFree(a.cost)) return false;
+    if (countyFilter !== "all" && !a.counties.includes(countyFilter)) return false;
+    if (ageFilter !== "all" && !a.ageGroups.includes(ageFilter)) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      if (
+        !a.name.toLowerCase().includes(q) &&
+        !a.location.toLowerCase().includes(q) &&
+        !a.desc.toLowerCase().includes(q) &&
+        !a.category.toLowerCase().includes(q)
+      ) return false;
+    }
+    return true;
+  });
+}
+
+function iconPin() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
+}
+function iconCal() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>`;
+}
+function iconPerson() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`;
+}
+
+function renderCards() {
+  const grid = document.getElementById("grid");
+  const bar = document.getElementById("results-bar");
+  const items = getFiltered();
+  bar.textContent = `${items.length} activit${items.length === 1 ? "y" : "ies"} found`;
+
+  if (items.length === 0) {
+    grid.innerHTML = `<div class="no-results"><span>🌿</span>No activities match those filters.<br>Try broadening your search.</div>`;
+    return;
+  }
+
+  grid.innerHTML = items.map(a => {
+    const free = isFree(a.cost);
+    const costClass = free ? "free" : "low";
+    return `
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">${a.name}</div>
+          <span class="badge-cost ${costClass}">${a.cost}</span>
+        </div>
+        <div class="card-meta">
+          <div class="meta-row">${iconCal()} ${a.dates}</div>
+          <div class="meta-row">${iconPin()} ${a.location}</div>
+          <div class="meta-row">${iconPerson()} ${a.ages}</div>
+        </div>
+        <div class="card-desc">${a.desc}</div>
+        <div class="card-footer">
+          <span class="badge-cat">${a.category}</span>
+          <a class="card-link" href="${a.link}" target="_blank" rel="noopener">More info →</a>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+// Filter chips — attach to document so all filter rows are covered
+document.addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if (!chip) return;
+  const { filter, value } = chip.dataset;
+  if (!filter) return;
+
+  document.querySelectorAll(`[data-filter="${filter}"]`).forEach(c => c.classList.remove("active"));
+  chip.classList.add("active");
+
+  if (filter === "cost") costFilter = value;
+  if (filter === "county") countyFilter = value;
+  if (filter === "age") ageFilter = value;
+  renderCards();
+});
+
+// Search
+document.getElementById("search").addEventListener("input", e => {
+  searchQuery = e.target.value.trim();
+  renderCards();
+});
+
+renderCards();
+</script>
+</body>
+</html>
