@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Winter & Holiday Help for Gorge Families 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f0ece3;
+    --cream-dark: #e5e0d5;
+    --ink: #1a1714;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8480;
+    --navy: #1c3a4a;
+    --navy-light: #2e5468;
+    --amber: #e8b84b;
+    --amber-dark: #c99a2e;
+    --amber-pale: #fdf4d8;
+    --green: #2d6a4f;
+    --green-pale: #d4eddf;
+    --white: #ffffff;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 22px 16px 18px;
+    text-align: center;
+  }
+
+  header .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+
+  header h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+
+  header p {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    font-weight: 400;
+  }
+
+  .controls {
+    background: var(--white);
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--cream-dark);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(26,23,20,0.08);
+  }
+
+  .search-wrap {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-light);
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    padding: 9px 12px 9px 34px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    background: var(--cream);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  #search:focus { border-color: var(--navy); }
+  #search::placeholder { color: var(--ink-light); }
+
+  .filter-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    padding-right: 2px;
+    white-space: nowrap;
+  }
+
+  .chip {
+    padding: 5px 13px;
+    border-radius: 999px;
+    border: 1.5px solid var(--cream-dark);
+    background: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    color: var(--ink-mid);
+  }
+
+  .chip:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--white);
+  }
+
+  .chip.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  .chip.cost-low.active {
+    background: var(--amber-dark);
+    border-color: var(--amber-dark);
+    color: var(--white);
+  }
+
+  .results-bar {
+    padding: 10px 16px 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .grid {
+    padding: 8px 12px 28px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 600px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 14px;
+    border: 1.5px solid var(--cream-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(26,23,20,0.1);
+    transform: translateY(-1px);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.2;
+  }
+
+  .badge-cost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-cost.free {
+    background: var(--green-pale);
+    color: var(--green);
+  }
+
+  .badge-cost.low {
+    background: var(--amber-pale);
+    color: var(--amber-dark);
+  }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--ink-light);
+  }
+
+  .meta-row svg { flex-shrink: 0; margin-top: 1px; }
+
+  .card-desc {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.45;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+    padding-top: 8px;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .badge-cat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--ink-light);
+    border: 1px solid var(--cream-dark);
+  }
+
+  .card-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    color: var(--amber-dark);
+    text-decoration: underline;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--ink-light);
+    grid-column: 1 / -1;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .no-results span { font-size: 2rem; display: block; margin-bottom: 8px; }
+
+  .lang-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1.5px solid transparent;
+    color: rgba(240,236,227,0.5);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    padding: 2px 7px;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .lang-btn.active {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .lang-sep {
+    color: rgba(240,236,227,0.25);
+    font-size: 0.75rem;
+    user-select: none;
+  }
+
+  /* ---- winter additions ---- */
+  @media (max-width: 599px) { .controls { position: static; } }  /* filters would cover half a phone screen */
+  :root { --berry: #9c2f3a; --berry-pale: #f7e3e4; --ice: #d9ebf2; }
+  header { background: linear-gradient(180deg, var(--navy) 0%, #16303d 100%); }
+  .help-callout {
+    margin: 12px 12px 0;
+    background: var(--white);
+    border: 2px solid var(--berry);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  }
+  .help-callout h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.02em; color: var(--berry); line-height: 1.1; margin-bottom: 3px;
+  }
+  .help-callout p { font-size: 0.85rem; color: var(--ink-mid); max-width: 52ch; }
+  .help-btn {
+    background: var(--berry); color: var(--white); border: none; border-radius: 999px;
+    padding: 8px 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; white-space: nowrap;
+  }
+  .help-btn:hover { background: #7d2530; }
+  .chip.type-help { border-color: var(--berry); color: var(--berry); }
+  .chip.type-help.active { background: var(--berry); border-color: var(--berry); color: var(--white); }
+  .card.is-help { border-left: 4px solid var(--berry); }
+  .deadline {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    background: var(--berry-pale); color: var(--berry);
+    padding: 4px 9px; border-radius: var(--radius-sm); align-self: flex-start;
+  }
+  .deadline.closed { background: var(--cream); color: var(--ink-light); text-decoration: line-through; }
+  .card.is-closed { opacity: 0.6; }
+  .tip-row { font-size: 0.75rem; color: var(--ink-light); font-style: italic; }
+  .site-note {
+    padding: 4px 16px 28px; font-size: 0.78rem; color: var(--ink-light); text-align: center; max-width: 70ch; margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+  <div class="eyebrow" id="hdr-eyebrow"></div>
+  <h1 id="hdr-title"></h1>
+  <p id="hdr-sub"></p>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="search" id="search" autocomplete="off">
+  </div>
+  <div class="filter-row">
+    <span class="filter-label" id="lbl-type">Type</span>
+    <button class="chip active" data-filter="type" data-value="all" id="chip-type-all">All</button>
+    <button class="chip type-help" data-filter="type" data-value="help" id="chip-type-help">Holiday Help</button>
+    <button class="chip" data-filter="type" data-value="meals" id="chip-type-meals">Free Meals</button>
+    <button class="chip" data-filter="type" data-value="events" id="chip-type-events">Holiday Events</button>
+    <button class="chip" data-filter="type" data-value="library" id="chip-type-library">Library</button>
+    <button class="chip" data-filter="type" data-value="outdoors" id="chip-type-outdoors">Snow &amp; Outdoors</button>
+    <button class="chip" data-filter="type" data-value="arts" id="chip-type-arts">Arts &amp; Crafts</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px">
+    <span class="filter-label" id="lbl-county">County</span>
+    <button class="chip active" data-filter="county" data-value="all" id="chip-county-all">All</button>
+    <button class="chip" data-filter="county" data-value="Skamania">Skamania</button>
+    <button class="chip" data-filter="county" data-value="Klickitat">Klickitat</button>
+    <button class="chip" data-filter="county" data-value="Hood River">Hood River</button>
+    <button class="chip" data-filter="county" data-value="Wasco">Wasco</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px">
+    <span class="filter-label" id="lbl-age">Ages</span>
+    <button class="chip active" data-filter="age" data-value="all" id="chip-age-all">All</button>
+    <button class="chip" data-filter="age" data-value="babies" id="chip-age-babies">Babies/Toddlers</button>
+    <button class="chip" data-filter="age" data-value="kids" id="chip-age-kids">Kids (4–12)</button>
+    <button class="chip" data-filter="age" data-value="teens" id="chip-age-teens">Teens</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px">
+    <span class="filter-label" id="lbl-cost">Cost</span>
+    <button class="chip active" data-filter="cost" data-value="all" id="chip-cost-all">All</button>
+    <button class="chip" data-filter="cost" data-value="free" id="chip-cost-free">Free</button>
+    <button class="chip cost-low" data-filter="cost" data-value="low" id="chip-cost-low">Under $10</button>
+  </div>
+</div>
+
+<div class="help-callout" id="help-callout">
+  <div>
+    <h2 id="help-title"></h2>
+    <p id="help-text"></p>
+  </div>
+  <button class="help-btn" id="help-btn"></button>
+</div>
+
+<div class="results-bar" id="results-bar"></div>
+<div class="grid" id="grid"></div>
+<p class="site-note" id="site-note"></p>
+
+<script>
+// Same shape as the summer list (index.html), plus:
+//   deadline: "YYYY-MM-DD" sign-up deadline (cards show "Sign up by…", and grey out once it passes)
+//   until:    "YYYY-MM-DD" last day of a dated event (card hides itself after that day)
+// Generated from tools/winter_data.py by tools/build_winter.py. Edit the data file, not this array.
+//   types: "help","meals","events","library","outdoors","arts"
+const activities = /*DATA*/[];
+
+const translations = /*TR*/{};
+
+const ui = {
+  en: {
+    eyebrow: "❄ Open Gorge · Winter 2026–27",
+    title: "Gorge Winter & Holiday Guide",
+    sub: "Free &amp; low-cost fun, plus holiday help for families, across Skamania, Klickitat, Hood River &amp; Wasco counties",
+    search: "Search gifts, meals, events, places…",
+    cost: "Cost", county: "County", age: "Ages", type: "Type",
+    all: "All", free: "Free", low: "Under $10",
+    babies: "Babies/Toddlers", kids: "Kids (4–12)", teens: "Teens",
+    help: "Holiday Help", meals: "Free Meals", events: "Holiday Events", library: "Library",
+    outdoors: "Snow &amp; Outdoors", arts: "Arts &amp; Crafts",
+    helpTitle: "Need help this holiday season?",
+    helpText: "Free gifts for kids, holiday meals, food boxes, warm coats, and help with heating bills. Many sign-ups close in early December, so start here.",
+    helpBtn: "Show holiday help",
+    signUpBy: d => `Sign up by ${d}`,
+    closed: d => `Sign-up closed ${d}`,
+    found: n => `${n} listing${n === 1 ? "" : "s"} found`,
+    moreInfo: "More info →",
+    noResults: "Nothing matches those filters.<br>Try broadening your search.",
+    note: "Dates and rules change. Call or check the link before you go. For anything not listed here, call 211 (free, any language).",
+    locale: "en-US",
+  },
+  es: {
+    eyebrow: "❄ Open Gorge · Invierno 2026–27",
+    title: "Guía de Invierno y Fiestas del Gorge",
+    sub: "Actividades gratuitas y de bajo costo, más ayuda para familias en las fiestas, en los condados de Skamania, Klickitat, Hood River y Wasco",
+    search: "Buscar regalos, comidas, eventos, lugares…",
+    cost: "Costo", county: "Condado", age: "Edades", type: "Tipo",
+    all: "Todo", free: "Gratis", low: "Menos de $10",
+    babies: "Bebés/Niños pequeños", kids: "Niños (4–12)", teens: "Adolescentes",
+    help: "Ayuda en las Fiestas", meals: "Comidas Gratis", events: "Eventos Festivos", library: "Biblioteca",
+    outdoors: "Nieve y Aire Libre", arts: "Arte y manualidades",
+    helpTitle: "¿Necesita ayuda en estas fiestas?",
+    helpText: "Regalos gratis para niños, comidas festivas, cajas de comida, abrigos y ayuda con la factura de calefacción. Muchas inscripciones cierran a principios de diciembre, así que empiece aquí.",
+    helpBtn: "Ver ayuda",
+    signUpBy: d => `Inscríbase antes del ${d}`,
+    closed: d => `Inscripción cerrada ${d}`,
+    found: n => `${n} resultado${n === 1 ? "" : "s"}`,
+    moreInfo: "Más información →",
+    noResults: "No hay resultados con esos filtros.<br>Intente ampliar su búsqueda.",
+    note: "Las fechas y reglas cambian. Llame o revise el enlace antes de ir. Para lo que no aparece aquí, llame al 211 (gratis, en cualquier idioma).",
+    locale: "es-US",
+  }
+};
+
+let lang = "en", costFilter = "all", countyFilter = "all", ageFilter = "all", typeFilter = "all", searchQuery = "";
+
+function isFree(cost) {
+  const c = cost.toUpperCase();
+  return c.startsWith("FREE") && !c.match(/\$[1-9]/);
+}
+function today() { const d = new Date(); d.setHours(0,0,0,0); return d; }
+function parseDeadline(s) { if (!s) return null; const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); }
+function isClosed(a) { const d = parseDeadline(a.deadline); return d ? d < today() : false; }
+function fmtDate(s) {
+  return parseDeadline(s).toLocaleDateString(ui[lang].locale, { month: "short", day: "numeric" });
+}
+
+function getFiltered() {
+  const list = activities.filter(a => {
+    if (a.until && parseDeadline(a.until) < today()) return false;  // past one-off events hide themselves
+    if (costFilter === "free" && !isFree(a.cost)) return false;
+    if (costFilter === "low" && isFree(a.cost)) return false;
+    if (countyFilter !== "all" && !a.counties.includes(countyFilter)) return false;
+    if (ageFilter !== "all" && !a.ageGroups.includes(ageFilter)) return false;
+    if (typeFilter !== "all" && !a.types.includes(typeFilter)) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const tr = translations[a.name];
+      const name = lang === "es" && tr ? tr.name : a.name;
+      const desc = lang === "es" && tr ? tr.desc : a.desc;
+      if (![name, desc, a.location, a.name, a.desc].some(s => s.toLowerCase().includes(q))) return false;
+    }
+    return true;
+  });
+  // Open sign-ups first (soonest deadline on top), then everything else in list order, closed sign-ups last.
+  const rank = a => isClosed(a) ? 2 : (a.deadline ? 0 : 1);
+  return list
+    .map((a, i) => ({ a, i }))
+    .sort((x, y) => rank(x.a) - rank(y.a)
+      || (rank(x.a) === 0 ? parseDeadline(x.a.deadline) - parseDeadline(y.a.deadline) : 0)
+      || x.i - y.i)
+    .map(x => x.a);
+}
+
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.getElementById("btn-en").classList.toggle("active", l === "en");
+  document.getElementById("btn-es").classList.toggle("active", l === "es");
+  const t = ui[l];
+  const set = (id, v) => document.getElementById(id).innerHTML = v;
+  set("hdr-eyebrow", t.eyebrow); set("hdr-title", t.title); set("hdr-sub", t.sub);
+  document.getElementById("search").placeholder = t.search;
+  set("lbl-cost", t.cost); set("lbl-county", t.county); set("lbl-age", t.age); set("lbl-type", t.type);
+  ["cost","county","age","type"].forEach(k => set(`chip-${k}-all`, t.all));
+  set("chip-cost-free", t.free); set("chip-cost-low", t.low);
+  set("chip-age-babies", t.babies); set("chip-age-kids", t.kids); set("chip-age-teens", t.teens);
+  ["help","meals","events","library","outdoors","arts"].forEach(k => set(`chip-type-${k}`, t[k]));
+  set("help-title", t.helpTitle); set("help-text", t.helpText); set("help-btn", t.helpBtn);
+  set("site-note", t.note);
+  renderCards();
+}
+
+function iconPin() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
+}
+function iconCal() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>`;
+}
+function iconPerson() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`;
+}
+
+function renderCards() {
+  const grid = document.getElementById("grid");
+  const items = getFiltered();
+  const t = ui[lang];
+  document.getElementById("results-bar").textContent = t.found(items.length);
+  document.getElementById("help-callout").style.display = typeFilter === "help" ? "none" : "";
+  if (items.length === 0) {
+    grid.innerHTML = `<div class="no-results"><span>❄</span>${t.noResults}</div>`;
+    return;
+  }
+  grid.innerHTML = items.map(a => {
+    const tr = translations[a.name];
+    const name = lang === "es" && tr ? tr.name : a.name;
+    const desc = lang === "es" && tr ? tr.desc : a.desc;
+    const closed = isClosed(a);
+    const help = a.types.includes("help");
+    const deadline = a.deadline
+      ? `<div class="deadline${closed ? " closed" : ""}">${closed ? t.closed(fmtDate(a.deadline)) : t.signUpBy(fmtDate(a.deadline))}</div>`
+      : "";
+    return `
+      <div class="card${help ? " is-help" : ""}${closed ? " is-closed" : ""}">
+        <div class="card-top">
+          <div class="card-title">${name}</div>
+          <span class="badge-cost ${isFree(a.cost) ? "free" : "low"}">${a.cost}</span>
+        </div>
+        ${deadline}
+        <div class="card-meta">
+          <div class="meta-row">${iconCal()} ${a.dates}</div>
+          <div class="meta-row">${iconPin()} ${a.location}</div>
+          <div class="meta-row">${iconPerson()} ${a.ages}</div>
+        </div>
+        <div class="card-desc">${desc}</div>
+        <div class="card-footer">
+          <span class="badge-cat">${a.category}</span>
+          <a class="card-link" href="${a.link}" target="_blank" rel="noopener">${t.moreInfo}</a>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+function setFilter(filter, value) {
+  document.querySelectorAll(`[data-filter="${filter}"]`).forEach(c => c.classList.toggle("active", c.dataset.value === value));
+  if (filter === "cost") costFilter = value;
+  if (filter === "county") countyFilter = value;
+  if (filter === "age") ageFilter = value;
+  if (filter === "type") typeFilter = value;
+  renderCards();
+}
+
+document.addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if (chip && chip.dataset.filter) setFilter(chip.dataset.filter, chip.dataset.value);
+});
+document.getElementById("help-btn").addEventListener("click", () => setFilter("type", "help"));
+document.getElementById("search").addEventListener("input", e => { searchQuery = e.target.value.trim(); renderCards(); });
+
+// ?lang=es and ?type=help let the Squarespace page or a flyer link straight to a view.
+const params = new URLSearchParams(location.search);
+if (params.get("type")) typeFilter = params.get("type");
+setLang(params.get("lang") === "es" ? "es" : "en");
+if (params.get("type")) setFilter("type", params.get("type"));
+</script>
+</body>
+</html>

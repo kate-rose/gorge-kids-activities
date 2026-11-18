@@ -1,0 +1,2727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Winter & Holiday Help for Gorge Families 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f0ece3;
+    --cream-dark: #e5e0d5;
+    --ink: #1a1714;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8480;
+    --navy: #1c3a4a;
+    --navy-light: #2e5468;
+    --amber: #e8b84b;
+    --amber-dark: #c99a2e;
+    --amber-pale: #fdf4d8;
+    --green: #2d6a4f;
+    --green-pale: #d4eddf;
+    --white: #ffffff;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 22px 16px 18px;
+    text-align: center;
+  }
+
+  header .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+
+  header h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+
+  header p {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    font-weight: 400;
+  }
+
+  .controls {
+    background: var(--white);
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--cream-dark);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(26,23,20,0.08);
+  }
+
+  .search-wrap {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-light);
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    padding: 9px 12px 9px 34px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    background: var(--cream);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  #search:focus { border-color: var(--navy); }
+  #search::placeholder { color: var(--ink-light); }
+
+  .filter-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    padding-right: 2px;
+    white-space: nowrap;
+  }
+
+  .chip {
+    padding: 5px 13px;
+    border-radius: 999px;
+    border: 1.5px solid var(--cream-dark);
+    background: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    color: var(--ink-mid);
+  }
+
+  .chip:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--white);
+  }
+
+  .chip.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  .chip.cost-low.active {
+    background: var(--amber-dark);
+    border-color: var(--amber-dark);
+    color: var(--white);
+  }
+
+  .results-bar {
+    padding: 10px 16px 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .grid {
+    padding: 8px 12px 28px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 600px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 14px;
+    border: 1.5px solid var(--cream-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(26,23,20,0.1);
+    transform: translateY(-1px);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.2;
+  }
+
+  .badge-cost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-cost.free {
+    background: var(--green-pale);
+    color: var(--green);
+  }
+
+  .badge-cost.low {
+    background: var(--amber-pale);
+    color: var(--amber-dark);
+  }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--ink-light);
+  }
+
+  .meta-row svg { flex-shrink: 0; margin-top: 1px; }
+
+  .card-desc {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.45;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+    padding-top: 8px;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .badge-cat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--ink-light);
+    border: 1px solid var(--cream-dark);
+  }
+
+  .card-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    color: var(--amber-dark);
+    text-decoration: underline;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--ink-light);
+    grid-column: 1 / -1;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .no-results span { font-size: 2rem; display: block; margin-bottom: 8px; }
+
+  .lang-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1.5px solid transparent;
+    color: rgba(240,236,227,0.5);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    padding: 2px 7px;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .lang-btn.active {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .lang-sep {
+    color: rgba(240,236,227,0.25);
+    font-size: 0.75rem;
+    user-select: none;
+  }
+
+  /* ---- winter additions ---- */
+  @media (max-width: 599px) { .controls { position: static; } }  /* filters would cover half a phone screen */
+  :root { --berry: #9c2f3a; --berry-pale: #f7e3e4; --ice: #d9ebf2; }
+  header { background: linear-gradient(180deg, var(--navy) 0%, #16303d 100%); }
+  .help-callout {
+    margin: 12px 12px 0;
+    background: var(--white);
+    border: 2px solid var(--berry);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  }
+  .help-callout h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.02em; color: var(--berry); line-height: 1.1; margin-bottom: 3px;
+  }
+  .help-callout p { font-size: 0.85rem; color: var(--ink-mid); max-width: 52ch; }
+  .help-btn {
+    background: var(--berry); color: var(--white); border: none; border-radius: 999px;
+    padding: 8px 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; white-space: nowrap;
+  }
+  .help-btn:hover { background: #7d2530; }
+  .chip.type-help { border-color: var(--berry); color: var(--berry); }
+  .chip.type-help.active { background: var(--berry); border-color: var(--berry); color: var(--white); }
+  .card.is-help { border-left: 4px solid var(--berry); }
+  .deadline {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    background: var(--berry-pale); color: var(--berry);
+    padding: 4px 9px; border-radius: var(--radius-sm); align-self: flex-start;
+  }
+  .deadline.closed { background: var(--cream); color: var(--ink-light); text-decoration: line-through; }
+  .card.is-closed { opacity: 0.6; }
+  .tip-row { font-size: 0.75rem; color: var(--ink-light); font-style: italic; }
+  .site-note {
+    padding: 4px 16px 28px; font-size: 0.78rem; color: var(--ink-light); text-align: center; max-width: 70ch; margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+  <div class="eyebrow" id="hdr-eyebrow"></div>
+  <h1 id="hdr-title"></h1>
+  <p id="hdr-sub"></p>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="search" id="search" autocomplete="off">
+  </div>
+  <div class="filter-row">
+    <span class="filter-label" id="lbl-type">Type</span>
+    <button class="chip active" data-filter="type" data-value="all" id="chip-type-all">All</button>
+    <button class="chip type-help" data-filter="type" data-value="help" id="chip-type-help">Holiday Help</button>
+    <button class="chip" data-filter="type" data-value="meals" id="chip-type-meals">Free Meals</button>
+    <button class="chip" data-filter="type" data-value="events" id="chip-type-events">Holiday Events</button>
+    <button class="chip" data-filter="type" data-value="library" id="chip-type-library">Library</button>
+    <button class="chip" data-filter="type" data-value="outdoors" id="chip-type-outdoors">Snow &amp; Outdoors</button>
+    <button class="chip" data-filter="type" data-value="arts" id="chip-type-arts">Arts &amp; Crafts</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px">
+    <span class="filter-label" id="lbl-county">County</span>
+    <button class="chip active" data-filter="county" data-value="all" id="chip-county-all">All</button>
+    <button class="chip" data-filter="county" data-value="Skamania">Skamania</button>
+    <button class="chip" data-filter="county" data-value="Klickitat">Klickitat</button>
+    <button class="chip" data-filter="county" data-value="Hood River">Hood River</button>
+    <button class="chip" data-filter="county" data-value="Wasco">Wasco</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px">
+    <span class="filter-label" id="lbl-age">Ages</span>
+    <button class="chip active" data-filter="age" data-value="all" id="chip-age-all">All</button>
+    <button class="chip" data-filter="age" data-value="babies" id="chip-age-babies">Babies/Toddlers</button>
+    <button class="chip" data-filter="age" data-value="kids" id="chip-age-kids">Kids (4–12)</button>
+    <button class="chip" data-filter="age" data-value="teens" id="chip-age-teens">Teens</button>
+  </div>
+  <div class="filter-row" style="margin-top:8px">
+    <span class="filter-label" id="lbl-cost">Cost</span>
+    <button class="chip active" data-filter="cost" data-value="all" id="chip-cost-all">All</button>
+    <button class="chip" data-filter="cost" data-value="free" id="chip-cost-free">Free</button>
+    <button class="chip cost-low" data-filter="cost" data-value="low" id="chip-cost-low">Under $10</button>
+  </div>
+</div>
+
+<div class="help-callout" id="help-callout">
+  <div>
+    <h2 id="help-title"></h2>
+    <p id="help-text"></p>
+  </div>
+  <button class="help-btn" id="help-btn"></button>
+</div>
+
+<div class="results-bar" id="results-bar"></div>
+<div class="grid" id="grid"></div>
+<p class="site-note" id="site-note"></p>
+
+<script>
+// Same shape as the summer list (index.html), plus:
+//   deadline: "YYYY-MM-DD" sign-up deadline (cards show "Sign up by…", and grey out once it passes)
+//   until:    "YYYY-MM-DD" last day of a dated event (card hides itself after that day)
+// Generated from tools/winter_data.py by tools/build_winter.py. Edit the data file, not this array.
+//   types: "help","meals","events","library","outdoors","arts"
+const activities = [
+ {
+  "name": "Hood River County Christmas Project",
+  "category": "Holiday Help",
+  "dates": "Sign up by Sat, Nov 21, 2026",
+  "deadline": "2026-11-21",
+  "location": "Online form (English & Spanish) · help by phone or text 541-329-0901",
+  "ages": "Newborn to 18",
+  "cost": "FREE",
+  "desc": "A holiday food box plus gift cards for your kids. For Hood River County families (Hood River, Odell, Parkdale, Cascade Locks, Mt Hood) who meet Oregon income guidelines. You don't need to celebrate Christmas, and signing up does not affect SNAP, FISH, or immigration status. Wasco County families can't register here; see the Salvation Army card.",
+  "link": "https://www.hoodrivercountychristmasproject.com/",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help",
+   "meals"
+  ]
+ },
+ {
+  "name": "Skamania County Christmas Basket",
+  "category": "Holiday Help",
+  "dates": "Sign up by Dec 3, 2026 · Baskets delivered Fri, Dec 18 from 9 AM",
+  "deadline": "2026-12-03",
+  "location": "Online form · Skamania County Events & Recreation, 710 SW Rock Creek Dr, Stevenson",
+  "ages": "Whole household",
+  "cost": "FREE",
+  "desc": "A full Christmas dinner (ham, potatoes, bread and more) delivered to your door, plus a gift for every child 18 and under and every senior in the home. Fill out the form for your own family or nominate a neighbor. No one is turned away and there's no income or ID question. Skamania County residents only. The form says \"Thursday, December 4 at 5:30 PM,\" but Dec 4 is a Friday this year, so send it in by Thursday, Dec 3 to be safe. Questions: parks@skamaniacounty.gov.",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSe-fUdcSbhjmRZ0AeuhWSFcoyoyYh2qiI8mUWiWyS4bESzjVA/viewform",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help",
+   "meals"
+  ]
+ },
+ {
+  "name": "Goldendale Giving Tree",
+  "category": "Holiday Help",
+  "dates": "Applications open now · apply early (no deadline posted)",
+  "location": "Pick up an application at Pat's Place, 105 W Main St, or WAGAP Housing, 150 W Main St, Goldendale",
+  "ages": "Kids",
+  "cost": "FREE",
+  "desc": "Goldendale's holiday gift program for local families who could use help with Christmas. Grab an application at Pat's Place or the WAGAP Housing office. No deadline has been posted, so don't wait. Questions: Taletha Wagoner, 509-493-3716.",
+  "link": "https://www.columbiagorgenews.com/free_news/registration-open-for-giving-tree-programs-donors-also-needed/article_49d77bdf-3dd2-43f5-9b75-7a22a5612d7f.html",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Lyle School District Holiday Gift Drive",
+  "category": "Holiday Help",
+  "dates": "Sign-ups open now · deadline not posted, sign up soon",
+  "location": "Online form (one per child) · Lyle School District, 625 Keasey Ave, Lyle",
+  "ages": "Lyle SD students",
+  "cost": "FREE",
+  "desc": "If your kids go to Lyle schools, including Dallesport Elementary, you can sign them up for the district's holiday gift drive. Fill out one online form per child. The district office can help if the form gives you trouble: 509-365-2211.",
+  "link": "https://www.lyleschools.org/index.php?pageID=smartSiteFeed&psqFeed=true&articleID=95732934",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Salvation Army Angel Tree (The Dalles)",
+  "category": "Holiday Help",
+  "dates": "Call now · this year's sign-up dates aren't posted online",
+  "location": "The Salvation Army, 623 E 3rd St, The Dalles",
+  "ages": "Kids",
+  "cost": "FREE",
+  "desc": "Wasco County families, including The Dalles and Mosier, sign up for Christmas gifts for kids through the Angel Tree. Sign-up opens early and fills, so call 541-296-6417 soon and ask how to register. Social services hours are Mon, Wed and Fri, 1–3 PM.",
+  "link": "https://thedalles.salvationarmy.org/the_dalles/",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "St. Vincent de Paul Holiday Help (The Dalles)",
+  "category": "Holiday Help",
+  "dates": "December · call to get on this year's list",
+  "location": "St. Vincent de Paul office, 315 W 3rd St, The Dalles",
+  "ages": "Families with kids",
+  "cost": "FREE",
+  "desc": "St. Vincent de Paul helps families at the holidays with a Christmas food box (together with the Salvation Army), a toy for each child, and a family dinner. Call 541-296-9566 (Mon–Thu 10–5, Fri 10–3) to ask how to sign up this year.",
+  "link": "https://svdpthedalles.org/",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help",
+   "meals"
+  ]
+ },
+ {
+  "name": "Lyle Lions Christmas Food Box",
+  "category": "Holiday Help",
+  "dates": "Usually sign up by Nov 30 · call to confirm this year",
+  "location": "Lyle School District area (Lyle, Dallesport, Klickitat)",
+  "ages": "Whole household",
+  "cost": "FREE",
+  "desc": "In past years the Lyle Lions have given holiday food boxes with a turkey and all the trimmings to families in the Lyle School District. This year's sign-up hasn't been posted yet. Call the Lyle school office at 509-365-2211 to ask.",
+  "link": "https://www.lyleschools.org/",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help",
+   "meals"
+  ]
+ },
+ {
+  "name": "WAGAP Tree of Joy",
+  "category": "Holiday Help",
+  "dates": "Sign-up closed Nov 13, 2026",
+  "deadline": "2026-11-13",
+  "location": "WAGAP offices: Bingen (115 W Steuben St), Goldendale, Stevenson",
+  "ages": "Under 18",
+  "cost": "FREE",
+  "desc": "Tree of Joy matches kids with local donors for winter clothes, a coat and a gift from their wish list. This year it served Klickitat families outside Goldendale. If you missed it, call WAGAP at 509-493-2662 and ask if any spots are left. Goldendale families can use the Goldendale Giving Tree, and Skamania families the Christmas Basket.",
+  "link": "https://www.columbiagorgenews.com/free_news/registration-open-for-giving-tree-programs-donors-also-needed/article_49d77bdf-3dd2-43f5-9b75-7a22a5612d7f.html",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Mill A Giving Tree",
+  "category": "Holiday Help",
+  "dates": "Ask the school office · ran mid-Nov to Dec 19 last year",
+  "location": "Mill A School / Pacific Crest Innovation Academy",
+  "ages": "Mill A SD families",
+  "cost": "FREE",
+  "desc": "Last year Mill A School District ran a Giving Tree to bring holiday gifts to some of its own families. If your kids attend Mill A or PCIA and you could use help, call or text the office at 509-774-7072 and ask if it's running again.",
+  "link": "https://www.milla.k12.wa.us/",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Heating Bill Help: WAGAP (WA)",
+  "category": "Holiday Help",
+  "dates": "Winter 2026–27 · call now to get on the appointment list",
+  "location": "By phone · WAGAP offices in Bingen, Goldendale and Stevenson",
+  "ages": "Households",
+  "cost": "FREE",
+  "desc": "Low-income households in Skamania and Klickitat counties can get help paying for heat: electric, gas, propane or wood. Call 509-493-2662 ext. 202 or toll-free 800-755-1192 ext. 202 (Skamania: 509-427-8229) and leave your name, phone number and town. Staff call back in order. Bring ID for every adult, Social Security cards for everyone, last month's income and a heating bill. WAGAP's intake form comes in Spanish.",
+  "link": "https://www.wagap.org/energy-assistance",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Heating Bill Help: MCCAC (OR)",
+  "category": "Holiday Help",
+  "dates": "Winter 2026–27 · call to check funding and appointments",
+  "location": "MCCAC, 2505 W 7th St, The Dalles · 606 State St, Suite 1B, Hood River",
+  "ages": "Households",
+  "cost": "FREE",
+  "desc": "Mid-Columbia Community Action Council helps Hood River and Wasco households with heating and utility bills. Funding has been tight, so call to ask what's open: 541-298-5131, ext. 206 in The Dalles (press 3 for Spanish) or ext. 310 in Hood River (press 4 for Spanish), or email energy@mccac.com. If you have a shut-off notice, The Dalles office takes walk-ins Tuesdays, 9–12 and 1–4.",
+  "link": "https://www.mccac.com/utility-assistance",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Pacific Power Bill Discount (OR)",
+  "category": "Holiday Help",
+  "dates": "Apply anytime",
+  "location": "Online or by phone · Pacific Power customers in Oregon",
+  "ages": "Households",
+  "cost": "FREE",
+  "desc": "If your power bill comes from Pacific Power in Oregon, you may qualify for a monthly discount just by telling them your household income. Income-qualified customers also get extra protection from winter shut-offs. Call 1-888-221-7070 (Spanish: 1-888-225-2611). Much of The Dalles is on Northern Wasco PUD instead; ask MCCAC about that discount.",
+  "link": "https://www.pacificpower.net/my-account/payments/bill-payment-assistance/oregon-low-income-discount-program.html",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Need a Warm Coat?",
+  "category": "Holiday Help",
+  "dates": "Coat drives run through December",
+  "location": "Ask your school counselor · WAGAP (WA) · The Next Door (OR)",
+  "ages": "Toddlers to teens",
+  "cost": "FREE",
+  "desc": "Every winter, local groups collect coats, boots, hats and gloves for Gorge kids, and school staff help hand them out. The easiest way in is to ask your child's school counselor. You can also call WAGAP (Stevenson 509-427-8229, Bingen 509-493-2662) on the Washington side, or The Next Door (541-386-6665) on the Oregon side.",
+  "link": "https://helpsharethewarmth.com/",
+  "counties": [
+   "Skamania",
+   "Klickitat",
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Washington 211",
+  "category": "Holiday Help",
+  "dates": "Free help line",
+  "location": "Dial 211 or 1-877-211-9274 · search online",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Not sure where to start? Skamania and Klickitat families can dial 211 to reach a real person who can point you to food, holiday help, heating help, housing and childcare. Free, confidential and multilingual.",
+  "link": "https://wa211.org/",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "211info (Oregon)",
+  "category": "Holiday Help",
+  "dates": "Call weekdays 8 AM–6 PM · text Mon–Fri 9 AM–5 PM",
+  "location": "Dial 211 or 866-698-6155 · text your ZIP code to 898211",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Oregon's free help line for holiday food boxes, toys, heat help or a warm place to stay. Their website keeps a Christmas Baskets list of holiday food and gift programs. Spanish help by phone, text and email.",
+  "link": "https://211info.org/get-help/basic-needs/christmas-baskets",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "The Next Door: Family Help in English & Spanish",
+  "category": "Holiday Help",
+  "dates": "Year-round · weekdays",
+  "location": "965 Tucker Rd, Hood River",
+  "ages": "Prenatal through teens",
+  "cost": "FREE",
+  "desc": "The Next Door runs free family programs in Hood River, including home visits for new and expecting parents, and Nuestra Comunidad Sana, a team of community health workers serving Latino families. Call 541-386-6665 to get connected to local help this winter.",
+  "link": "https://www.nextdoorinc.org/family-services",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Hood River Shelter (MCCAC)",
+  "category": "Holiday Help",
+  "dates": "Year-round · intake weekdays 9 AM–4 PM",
+  "location": "1733 Oak St, Hood River",
+  "ages": "Call to ask about families",
+  "cost": "FREE",
+  "desc": "If you have nowhere warm to sleep, the MCCAC shelter takes guests first-come, first-served as beds allow, and it's staffed around the clock. Call before you go to ask about space for families with kids: 541-298-5131 (press 4 for Spanish). Severe-weather bed line: 541-965-0990.",
+  "link": "https://www.mccac.com/hood-river-shelter",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "help"
+  ]
+ },
+ {
+  "name": "Free Books by Mail for Kids Under 5 (OR)",
+  "category": "Holiday Help",
+  "dates": "Sign up anytime · one book a month until age 5",
+  "location": "Mailed to your home (Oregon)",
+  "ages": "Birth to 5",
+  "cost": "FREE",
+  "desc": "Oregon families can sign up each child under 5 for a free book mailed home every month, with no income test. A book in the mailbox makes a nice winter surprise.",
+  "link": "https://oregon.gov/delc/programs/Pages/imagination-library.aspx",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies"
+  ],
+  "types": [
+   "help",
+   "library"
+  ]
+ },
+ {
+  "name": "WIC Food Help for Little Ones (OR)",
+  "category": "Holiday Help",
+  "dates": "Year-round · Mon–Fri by appointment",
+  "location": "North Central Public Health District, 419 E 7th St, The Dalles",
+  "ages": "Pregnancy to age 5",
+  "cost": "FREE",
+  "desc": "WIC gives healthy groceries and nutrition support to pregnant moms, new moms and kids under 5. Dads, grandparents and foster parents can apply too. Call 541-506-2600 for an appointment. Washington families use Washington WIC: 1-800-841-1410.",
+  "link": "https://ncphd.org/oregon-resident-wic",
+  "counties": [
+   "Wasco",
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies"
+  ],
+  "types": [
+   "help",
+   "meals"
+  ]
+ },
+ {
+  "name": "Free Community Thanksgiving Meal (Hood River)",
+  "category": "Holiday Meal",
+  "dates": "Thu, Nov 26, 2026 · 12–2 PM",
+  "until": "2026-11-26",
+  "location": "Riverview Room, Riverside Community Church, 317 State St, Hood River",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "The 11th annual free Thanksgiving dinner, open to everyone: families, singles and friends from both sides of the river. No sign-up needed. Just come between noon and 2.",
+  "link": "https://www.columbiagorgenews.com/free_news/free-community-thanksgiving-returns-for-11th-year-at-riverside-community-church-hood-river/article_c53d1891-dcff-4bd9-a82c-df54541bd2b2.html",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "events"
+  ]
+ },
+ {
+  "name": "Backwoods Weekend & Break Food Bags",
+  "category": "Food",
+  "dates": "School year, weekends and school breaks",
+  "location": "Through Skamania County schools",
+  "ages": "School-age kids",
+  "cost": "FREE",
+  "desc": "The Backwoods Foundation in Carson sends home bags of easy, shelf-stable meals for weekends and school breaks. Kids sign up through the school, and it's handled privately. Ask your child's teacher or school office before winter break (Dec 21–Jan 1).",
+  "link": "https://www.backwoodsbrewingcompany.com/foundation",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "Weekend Backpack Food (The Dalles)",
+  "category": "Food",
+  "dates": "School weeks",
+  "location": "Through North Wasco (District 21) schools",
+  "ages": "School-age kids",
+  "cost": "FREE",
+  "desc": "Kids at every District 21 school can bring home a weekend food bag with two breakfasts, two lunches and two dinners. Ask your child's school counselor or office to sign them up, and ask whether bags go home before winter break.",
+  "link": "https://oregonfoodbank.org/posts/the-dalles-community-backpack-program-celebrates-10-years",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "Lunch with Tumi: Winter-Break Lunch & Dog Storytime",
+  "category": "Public Library",
+  "dates": "Tue–Thu, Dec 22–24, 2026 · 12:30–1:30 PM",
+  "until": "2026-12-24",
+  "location": "The Dalles Public Library, 722 Court St",
+  "ages": "Preschool to teens",
+  "cost": "FREE",
+  "desc": "Three winter-break lunches at the library: kids make a sandwich, grab chips and a treat, then settle in for a holiday storytime with Tumi, a friendly labradoodle. Just come.",
+  "link": "https://www.wascocountylibrary.com/event/lunch-tumi-23030",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "library"
+  ]
+ },
+ {
+  "name": "WAGAP Food Banks: Stevenson & Bingen",
+  "category": "Food",
+  "dates": "Tue & Thu · 9 AM–3:30 PM (closed noon–1)",
+  "location": "683 SW Rock Creek Dr, Stevenson · 115 W Steuben St, Bingen",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Low-income families can pick up a free monthly food box with canned goods, fresh produce, bread and frozen meat, sized to your household. Thanksgiving, Christmas Eve and New Year's Eve all fall on Thursdays this year, so call ahead: 509-493-2662 ext. 208. Brochures come in Spanish.",
+  "link": "https://www.wagap.org/food-banks-nutrition",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "WAGAP Food Banks: Goldendale & Klickitat",
+  "category": "Food",
+  "dates": "Goldendale: Mon 9 AM–3:30 PM, Wed 12:30–4:30 PM · Klickitat: Wed 1–4 PM",
+  "location": "112 E Main, Goldendale · 92 Main St, Klickitat",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Monthly food boxes for low-income families in central and east Klickitat County. Goldendale: 509-281-2203. Klickitat: 509-493-2662 ext. 208. Call ahead around the holidays in case hours change.",
+  "link": "https://www.wagap.org/food-banks-nutrition",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "WAGAP Mobile Food Bank",
+  "category": "Food",
+  "dates": "1st Thursdays: Wishram 9–11 AM, Dallesport 12–2 PM · 3rd Thursdays: Trout Lake 9–11 AM, Glenwood 12–2 PM, BZ Corner 3–4:30 PM",
+  "location": "Wishram School · Dallesport Community Center · Mt Adams Baptist Church · Glenwood School · BZ Corner Community Building",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Free food comes to rural Klickitat towns once a month. Holiday weeks can shift the route, so check the latest flyer (also in Spanish) or call 509-493-2662 ext. 208 before you go.",
+  "link": "https://www.wagap.org/food-banks-nutrition",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "FISH Food Bank (Hood River)",
+  "category": "Food",
+  "dates": "Mon 3–5 PM · Wed 9–10 AM & 3–5:30 PM · Fri 3–5 PM",
+  "location": "1130 Tucker Rd, Hood River",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Free groceries for any family that needs food. No ID needed, and families crossing the bridge from Washington are served too. Closed Nov 27, Dec 25, Dec 28 and Jan 1. Phone (541) 386-3474, answered Mon, Wed, Fri 8–11 AM.",
+  "link": "https://www.fishfoodbank.org/",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "Salvation Army Food Pantry (The Dalles)",
+  "category": "Food",
+  "dates": "Mon, Wed, Fri · 1–3 PM",
+  "location": "623 E 3rd St, The Dalles",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "A shopping-style pantry where you pick the food your family will actually use. No ID needed for a food box, and they also give out clothing and household items. Bring a bag or box. Call 541-296-6417 to check holiday closures.",
+  "link": "https://thedalles.salvationarmy.org/the_dalles/social-services",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "St. Vincent de Paul Free Meals & Pantry (The Dalles)",
+  "category": "Food",
+  "dates": "Free meals most weekdays · pantry Tue 1–3 PM & Thu 3–5 PM",
+  "location": "Meals: 315 W 3rd St · Pantry: 505 W 9th St (back entrance off W Trevitt lot), The Dalles",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "St. Vincent de Paul and its partners serve free meals in The Dalles through the week. No sign-up, just come at mealtime. At the pantry, volunteers walk you through so you can choose what your family needs. Call 541-296-9566 for this week's meal times.",
+  "link": "https://svdpthedalles.org/food-bank/",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "Rural Food Pantries: Dufur, Maupin, Wamic",
+  "category": "Food",
+  "dates": "Dufur Thu 3–6 PM · Maupin Thu 10 AM–3 PM · Wamic 1st & 3rd Thu 1–4 PM",
+  "location": "Dufur School Pantry, 802 NE 5th St · Life Raft Pantry, 401 5th St, Maupin · Wamic Community Center",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "South Wasco families don't have to drive to The Dalles. These small pantries hand out a few days of food per visit, with no ID or income proof needed. Hours come from a 2024 guide, so call first: Dufur 541-467-2509, Maupin 541-973-7814.",
+  "link": "https://files.constantcontact.com/3feabc6b001/ed8ec35f-3f4a-4c35-baf9-ccb5adf918f1.pdf",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "Mosier Soup Night & Food Boxes",
+  "category": "Food",
+  "dates": "Ask about this winter's schedule",
+  "location": "Brenna's Mosier Market, Mosier",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Mosier neighbors started a weekly free soup night and deliver food boxes to families who need them. Last winter it ran Wednesdays, 4–6 PM. Email tmosiercarescoalition@gmail.com to ask about this year or to get a box.",
+  "link": "https://www.columbiagorgenews.com/news/mosier-group-addresses-food-insecurity/article_cc4010f4-9cf5-4cf4-a2c1-5b45d37803f4.html",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "help"
+  ]
+ },
+ {
+  "name": "Community Lunches Open to All (Klickitat)",
+  "category": "Food",
+  "dates": "White Salmon: Mon & Wed noon · Goldendale: Tue & Thu noon · Lyle: Tue noon",
+  "location": "Pioneer Center, White Salmon · Goldendale Community Center · Lyle Lions Center",
+  "ages": "All ages",
+  "cost": "$7 suggested donation",
+  "desc": "Hot weekday lunches run for seniors but open to everyone, so grandparents can bring grandkids over winter break. The donation is suggested, not required. Call ahead over holiday weeks.",
+  "link": "https://www.columbiagorgenews.com/free_news/whats-happening-week-of-nov-16-2026/article_7ee5a20e-a39b-40b5-a091-a9faffbce5be.html",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals"
+  ]
+ },
+ {
+  "name": "Lyle Lions Pancake Breakfast",
+  "category": "Food",
+  "dates": "First Saturdays · 7–10 AM (Dec 5, Jan 2, Feb 6)",
+  "location": "Lyle Lions Community Center, 5th & Hwy 14, Lyle",
+  "ages": "All ages",
+  "cost": "FREE under 5 · $5 ages 6–12",
+  "desc": "A monthly community pancake breakfast. Kids under 5 eat free and ages 6–12 are $5. Confirm the holiday-weekend dates before you go.",
+  "link": "https://www.columbiagorgenews.com/free_news/whats-happening-week-of-nov-16-2026/article_7ee5a20e-a39b-40b5-a091-a9faffbce5be.html",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids"
+  ],
+  "types": [
+   "meals",
+   "events"
+  ]
+ },
+ {
+  "name": "Hood River Winter Farmers Market",
+  "category": "Food",
+  "dates": "1st & 3rd Saturdays · 10 AM–1 PM (Dec 5 & 19, Jan 2 & 16, Feb 6 & 20)",
+  "location": "403 Portway Ave, Hood River",
+  "ages": "All ages",
+  "cost": "FREE to attend",
+  "desc": "Gorge Grown's winter market has local winter vegetables and live music. If you use SNAP, stop at the info booth first and ask about matching dollars for fruits and vegetables.",
+  "link": "https://gorgegrown.com/hoodriver/",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "meals",
+   "events"
+  ]
+ },
+ {
+  "name": "The Dalles Starlight Parade & Tree Lighting",
+  "category": "Community Event",
+  "dates": "Fri, Nov 27, 2026 · parade 6 PM, tree lighting after",
+  "until": "2026-11-27",
+  "location": "Downtown The Dalles · tree at the Chamber, 404 W 2nd St",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "The 37th Starlight Parade lights up downtown the night after Thanksgiving, with this year's theme \"Holidays Around the World.\" Afterward, walk to the Chamber for cocoa, cookies, popcorn and the community tree lighting.",
+  "link": "https://www.thedalleschamber.com/starlight-parade",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "Kids' Ornaments & Movie at Columbia Center for the Arts",
+  "category": "Arts",
+  "dates": "Sat, Nov 28, 2026 · ornament craft 11 AM–1 PM · movie 1:30 PM",
+  "until": "2026-11-28",
+  "location": "Columbia Center for the Arts, 215 Cascade Ave, Hood River",
+  "ages": "Ages 4+ with a grown-up",
+  "cost": "FREE",
+  "desc": "At the Holiday Open House, kids make metal embossed ornaments and decorate sugar cookies, then The Muppet Christmas Carol plays at 1:30. Admission is free (donations welcome). An RSVP helps them plan supplies.",
+  "link": "https://www.columbiaarts.org/event-details/holiday-open-house-2026",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "arts"
+  ]
+ },
+ {
+  "name": "Skamania Lodge Holiday Light Walk",
+  "category": "Community Event",
+  "dates": "Nov 27, 2026 – Jan 3, 2027 · 5–9 PM nightly",
+  "until": "2027-01-03",
+  "location": "Skamania Lodge, Stevenson",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Walk the lodge's lit-up forest trails and holiday displays any evening from Thanksgiving weekend through winter break. Paths can be wet or icy, so bring good shoes.",
+  "link": "https://skamania.org/christmas-in-the-gorge/",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "outdoors"
+  ]
+ },
+ {
+  "name": "Christmas on the Farm at Cedar Creek Alpacas",
+  "category": "Community Event",
+  "dates": "Nov 27 – Dec 30, 2026 · Wed–Sun 11 AM–5 PM · Santa Sat, Dec 12, 12–2 PM",
+  "until": "2026-12-30",
+  "location": "182 McNichols Rd, Cook, WA",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Visit the alpacas on a farm decorated for the holidays. Admission is free, and Santa visits on Saturday, Dec 12. Closed Mondays, Tuesdays, Dec 24 and Dec 25.",
+  "link": "https://skamania.org/christmas-in-the-gorge-business-promotions/",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "outdoors"
+  ]
+ },
+ {
+  "name": "Cocoa Crawl & Bigfoot Scavenger Hunt",
+  "category": "Community Event",
+  "dates": "Cocoa Crawl Nov 28 – Dec 6 · Bigfoot Hunt Nov 30 – Dec 13, 2026",
+  "until": "2026-12-13",
+  "location": "Businesses across Skamania County · mugs at the Chamber, 167 NW Second St, Stevenson",
+  "ages": "All ages",
+  "cost": "$5 mug",
+  "desc": "Buy a $5 Christmas in the Gorge mug at the Chamber and get it filled with free cocoa at participating businesses. Kids can also pick up a Bigfoot Scavenger Hunt form, find the hidden Bigfoot at each stop, and turn it in for a chance at a prize.",
+  "link": "https://skamania.org/christmas-in-the-gorge/",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "Stevenson Tree Lighting & Starlight Parade",
+  "category": "Community Event",
+  "dates": "Fri, Dec 4, 2026 · tree lighting 6:30 PM, parade 7 PM",
+  "until": "2026-12-04",
+  "location": "Courthouse lawn and downtown Stevenson",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Caroling and free cookies, cocoa and cider at the courthouse tree lighting, then the Starlight Parade through town. This year's theme is \"Old-Fashioned Hometown Christmas.\" Want to be in it? Families can enter a float or decorated vehicle by Dec 2.",
+  "link": "https://skamania.org/christmas-in-the-gorge/",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "Hood River Tree Lighting & Festival",
+  "category": "Community Event",
+  "dates": "Fri, Dec 4, 2026 · 5–7 PM (tree lit 5:45–6 PM)",
+  "until": "2026-12-04",
+  "location": "Downtown Hood River · tree at State & 2nd, festival on Oak St",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Downtown closes its streets for an evening of lights and music. The community tree lights up between 5:45 and 6, and Santa and Mrs. Claus are by the tree from 5 to 6:30. Food and shopping cost extra.",
+  "link": "https://visithoodriver.com/event/2026-annual-hood-river-tree-lighting-festival/",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "White Salmon Village Lights",
+  "category": "Community Event",
+  "dates": "Sat, Dec 5, 2026 · 9 AM–9 PM (tree & menorah lighting 5 PM)",
+  "until": "2026-12-05",
+  "location": "Downtown White Salmon",
+  "ages": "All ages · kids' fun run ages 2–7",
+  "cost": "FREE",
+  "desc": "A whole day downtown: a free Ugly Sweater Fun Run for ages 2–7 at 9:30 AM, fire trucks and cocoa from 10 to 1, an alpaca petting zoo from 4 to 7, the tree and menorah lighting with cookies, s'mores and cider at 5, and Santa photos at Mosko Moto from 6 to 8.",
+  "link": "https://explorewhitesalmon.com/village-lights/",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "Winter Celebration at White Salmon Library",
+  "category": "Public Library",
+  "dates": "Sat, Dec 5, 2026 · 2–5 PM",
+  "until": "2026-12-05",
+  "location": "White Salmon Valley Community Library",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "The library's part of Village Lights, with refreshments, hands-on kids' activities, a quilt show and live music all afternoon. Just drop in.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa47e627825b40064068a17",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "Christmas in the Gorge at the Columbia Gorge Museum",
+  "category": "Community Event",
+  "dates": "Sat, Dec 5, 2026 · 12–2 PM",
+  "until": "2026-12-05",
+  "location": "Columbia Gorge Museum, 990 SW Rock Creek Dr, Stevenson",
+  "ages": "All ages",
+  "cost": "FREE under 6 · $8 ages 6–17",
+  "desc": "Brass band music, hot cocoa with all the fixings, and a Gorge Memories tree where kids hang an ornament with a favorite memory. Free with an FVRL museum pass (see the Experience Pass card).",
+  "link": "https://www.columbiagorgemuseum.org/christmas-in-the-gorge",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "arts"
+  ]
+ },
+ {
+  "name": "Christmas in Carson: Tree Lighting & Santa",
+  "category": "Community Event",
+  "dates": "Sun, Dec 6, 2026 · 6:30 PM",
+  "until": "2026-12-06",
+  "location": "Gator Creek Gardens, Carson",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Carson's tree lighting, with photos with Santa and free cookies and cocoa. Carson businesses run holiday giveaways all weekend, Dec 4–6.",
+  "link": "https://skamania.org/christmas-in-the-gorge/",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "Maupin Holiday Festival",
+  "category": "Community Event",
+  "dates": "Sun, Dec 6, 2026 · 1–5 PM (Santa 2 PM, tree lighting 5 PM)",
+  "until": "2026-12-06",
+  "location": "Southern Wasco Public Library, Civic Center & Kaiser Park, Maupin",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Family crafts, face painting and a life-size Candyland at the library. Santa arrives at 2, hay rides run 2 to 4, and the tree lights up at 5. Bring a mug to sample hot drinks and soup.",
+  "link": "https://www.wascocountylibrary.com/event/maupin-holiday-festival-25870",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "library"
+  ]
+ },
+ {
+  "name": "Cascade Singers Holiday Concert",
+  "category": "Arts",
+  "dates": "Sat, Dec 5, 2026 · 7 PM · Sun, Dec 6 · 2 PM",
+  "until": "2026-12-06",
+  "location": "Zion Lutheran Church, 101 W 10th St, The Dalles",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "The community choir's holiday show, \"No Place Like Home for the Holidays.\" Admission is free, and the Sunday afternoon show is easy with little ones.",
+  "link": "https://www.columbiagorgenews.com/free_news/whats-happening-week-of-nov-16-2026/article_7ee5a20e-a39b-40b5-a091-a9faffbce5be.html",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "arts"
+  ]
+ },
+ {
+  "name": "History Museum Holiday Open House",
+  "category": "Community Event",
+  "dates": "Sat, Dec 12, 2026 · 2–4 PM",
+  "until": "2026-12-12",
+  "location": "History Museum of Hood River County, 300 E Port Marina Dr",
+  "ages": "All ages",
+  "cost": "FREE for kids 10 & under",
+  "desc": "A holiday afternoon at the museum with live music from Harmony of the Gorge and Holiday Brass. Kids 10 and under always get in free.",
+  "link": "https://www.hoodriverhistorymuseum.org/single-event/hood-river-history-museum-holiday-open-house/",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "Welcome Winter at Maryhill Stonehenge",
+  "category": "Community Event",
+  "dates": "Mon, Dec 21, 2026 · 8 AM–1 PM",
+  "until": "2026-12-21",
+  "location": "Maryhill Stonehenge, off Hwy 14 east of Maryhill Museum",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Spend the morning of the shortest day of the year at Stonehenge above the Columbia, with free crafts and family photos. Pastries and drinks are for sale. (The museum itself is closed for winter.)",
+  "link": "https://www.maryhillmuseum.org/events/welcome-winter-at-maryhill-stonehenge",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "outdoors",
+   "arts"
+  ]
+ },
+ {
+  "name": "Winter Reading: Season of Wonder",
+  "category": "Public Library",
+  "dates": "Dec 1, 2026 – Jan 23, 2027",
+  "until": "2027-01-23",
+  "location": "Hood River, Parkdale & Cascade Locks libraries",
+  "ages": "Babies to teens",
+  "cost": "FREE",
+  "desc": "Kids 0–12 pick up a bookmark at any branch and earn a raffle ticket for every hour they read, with prizes like a Northern Lights projector and winter LEGO sets. Teens get their own bingo card and raffle.",
+  "link": "https://hoodriverlibrary.org/winter-reading",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library"
+  ]
+ },
+ {
+  "name": "Holiday Crafts & Ornaments at The Dalles Library",
+  "category": "Public Library",
+  "dates": "Workshops Tue, Dec 8 & Tue, Dec 22 · 2:30–5 PM · drop-in ornaments Dec 1, 5, 12 & 19",
+  "until": "2026-12-22",
+  "location": "The Dalles Public Library, 722 Court St",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Kids make a handmade gift for someone they love: coasters on Dec 8 and snow globes on Dec 22, during winter break. On several December days, drop in anytime to make an ornament.",
+  "link": "https://www.wascocountylibrary.com/event/family-christmas-craft-workshop-22793",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Fun Fridays for Kids 5–10",
+  "category": "Public Library",
+  "dates": "Fridays 3:30–4:30 PM · Dec 4 (hot chocolate bar), Dec 11 (snow globes), Dec 18 (winter slime), Jan 8 (indoor snowball fight)",
+  "location": "The Dalles Public Library, Children's Wing",
+  "ages": "Ages 5–10",
+  "cost": "FREE",
+  "desc": "A weekly after-school hangout with a different craft, game or coding activity each Friday, running through February.",
+  "link": "https://www.wascocountylibrary.com/event/fun-fridays-18956",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "kids"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Family Nights at The Dalles Library",
+  "category": "Public Library",
+  "dates": "Thursdays 6 PM · Lego Pizza Night 5:30 PM Dec 31 & Jan 28",
+  "location": "The Dalles Public Library, 722 Court St",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Weeknight fun for the whole family: stories with a hot cocoa bar, STEAM nights and craft nights. On the last Thursday of the month, Lego Pizza Night means building and pizza together, including New Year's Eve.",
+  "link": "https://www.wascocountylibrary.com/event/family-lego-pizza-night-9833",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "arts",
+   "meals"
+  ]
+ },
+ {
+  "name": "Cuentos en Español: Bilingual Storytime",
+  "category": "Public Library",
+  "dates": "Wednesdays · 6–6:30 PM (runs through winter break)",
+  "location": "The Dalles Public Library, Children's Wing",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "A weekly Spanish-English storytime with songs, fingerplays, snacks and crafts. Everyone is welcome, and it keeps going Dec 23 and Dec 30.",
+  "link": "https://www.wascocountylibrary.com/event/cuentos-en-espanol-bilingual-storytime-23326",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids"
+  ],
+  "types": [
+   "library"
+  ]
+ },
+ {
+  "name": "Bilingual Family Storytime / Hora de Cuento",
+  "category": "Public Library",
+  "dates": "Saturdays · 10:30–11:30 AM (incl. Dec 19, Dec 26, Jan 2)",
+  "location": "White Salmon Valley Community Library",
+  "ages": "Ages 0–5 with a grown-up",
+  "cost": "FREE",
+  "desc": "Stories, songs and activities in English and Spanish for little kids and their grown-ups, all through winter break.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa47f496059b704112a42de",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids"
+  ],
+  "types": [
+   "library"
+  ]
+ },
+ {
+  "name": "Library Movies at the Granada: Elf & Frozen",
+  "category": "Public Library",
+  "dates": "Elf: Fri, Dec 4 · 6–8 PM · Frozen: Wed, Dec 23 · 4–6 PM",
+  "until": "2026-12-23",
+  "location": "The Granada Theatre, 221 E 2nd St, The Dalles",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "The library is showing holiday movies at the historic Granada. Wear a costume to Frozen on Dec 23: the best prince or princess costume wins a prize.",
+  "link": "https://www.wascocountylibrary.com/event/movie-day-granada-frozen-23143",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "Hanukkah Party at The Dalles Library",
+  "category": "Public Library",
+  "dates": "Fri, Dec 11, 2026 · 4:30–5:30 PM",
+  "until": "2026-12-11",
+  "location": "The Dalles Public Library, 722 Court St",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "A family Festival of Lights celebration with Hanukkah treats, crafts, activities and a story. Everyone is welcome.",
+  "link": "https://www.wascocountylibrary.com/event/hannukah-party-25620",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "Christmas in LibraryLand: Holiday Tap Show",
+  "category": "Public Library",
+  "dates": "Sat, Dec 12, 2026 · 3:30–4:30 PM",
+  "until": "2026-12-12",
+  "location": "The Dalles Civic Auditorium, 323 E 4th St",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Dancers from the library's free holiday tap classes perform, joined by The Dalles Ukulele Players. A cozy community show for the whole family.",
+  "link": "https://www.wascocountylibrary.com/event/dalles-library-presents-christmas-libraryland-14850",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "events",
+   "arts"
+  ]
+ },
+ {
+  "name": "Red Yarn: Winter in the Deep Woods",
+  "category": "Public Library",
+  "dates": "Sat, Dec 12, 2026 · 11 AM–12 PM",
+  "until": "2026-12-12",
+  "location": "Goldendale Community Library",
+  "ages": "Little kids & families",
+  "cost": "FREE",
+  "desc": "Family performer Red Yarn brings a sing-and-dance show of folk songs and winter favorites about woodland critters getting ready for winter. Great for little ones.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa876fed6577100383cf184",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "Gingerbread Houses, Wreaths & Centerpieces",
+  "category": "Public Library",
+  "dates": "Wreaths: Stevenson Sat, Dec 5 · Centerpieces: White Salmon Mon, Dec 7 · Gingerbread: White Salmon Fri, Dec 11 & Stevenson Sat, Dec 19",
+  "until": "2026-12-19",
+  "location": "Stevenson & White Salmon Valley Community Libraries",
+  "ages": "Families",
+  "cost": "FREE",
+  "desc": "Drop in to decorate a gingerbread house (supplies provided while they last) or make a holiday wreath or centerpiece together. For greenery crafts, bring clippers or scissors if you have them.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa09d32d94765189bba066a",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Cardboard Gingerbread Houses (Maupin)",
+  "category": "Public Library",
+  "dates": "Mon, Dec 14, 2026 · 3:45–5 PM",
+  "until": "2026-12-14",
+  "location": "Southern Wasco Public Library, 507 Grant Ave, Maupin",
+  "ages": "School age",
+  "cost": "FREE",
+  "desc": "Kids build gingerbread houses out of cardboard with a kid-safe saw and decorate them with white paint-marker icing. A holiday craft the dog can't eat.",
+  "link": "https://www.wascocountylibrary.com/event/cardboard-gingerbread-houses-25875",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "kids"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Winter Break Drop-Ins at Stevenson Library",
+  "category": "Public Library",
+  "dates": "Video games Mon, Dec 21 & Feb 15 · Kids Create Wed, Dec 23, Dec 30 & Feb 17 · Build It Sat, Dec 26 & Feb 13 · Candy Science Thu, Feb 18",
+  "location": "Stevenson Community Library",
+  "ages": "Ages 5–12",
+  "cost": "FREE",
+  "desc": "Free drop-in fun during both school breaks: Nintendo Switch on the big screen, LEGO building challenges, art projects, and a candy science lab. No sign-up needed.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa8745dd6577100383cf0ba",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "kids"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Family Movie Matinees (Hood River Library)",
+  "category": "Public Library",
+  "dates": "Saturdays 2 PM · Dec 19 (Elemental), Jan 2 (Luca), Jan 16 (Chicken Run), Feb 6 (Encanto), Feb 20",
+  "location": "Hood River Library Meeting Room, 502 State St",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Free family movies with snacks and drinks. Two of them fall during winter break.",
+  "link": "https://www.hoodriverlibrary.org/event/family-movie-matinee-elemental-4559",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "First-Sunday Movies (Stevenson & White Salmon)",
+  "category": "Public Library",
+  "dates": "Sun, Dec 6 (White Salmon) · Sun, Jan 3 & Sun, Feb 7 (both libraries)",
+  "location": "Stevenson Community Library · White Salmon Valley Community Library",
+  "ages": "Kids & families",
+  "cost": "FREE",
+  "desc": "On the first Sunday of the month, both libraries show a free family movie. Stevenson adds a matching build or craft. Jan 3 is the last day of winter break.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa874aaa433d308573b89e5",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "kids"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "Teen Nights at the Library",
+  "category": "Public Library",
+  "dates": "Stevenson horror movie Mon, Dec 14 · Goldendale D&D Sat, Dec 19, Jan 2 & Feb 13 · White Salmon late night Fri, Jan 15 & Feb 19",
+  "location": "Stevenson, Goldendale & White Salmon Valley libraries",
+  "ages": "Teens (D&D ages 9–19)",
+  "cost": "FREE",
+  "desc": "A horror movie with free pizza in Stevenson, Dungeons & Dragons in Goldendale (new players welcome), and after-hours games, crafts and snacks in White Salmon.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6a90cab2bcd6690f682a58b4",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "teens"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "Teen Holiday Craft Making (Hood River Library)",
+  "category": "Public Library",
+  "dates": "Sat, Dec 5, 2026 · drop in 2–5 PM",
+  "until": "2026-12-05",
+  "location": "Hood River Library Teen Area, 502 State St",
+  "ages": "Teens",
+  "cost": "FREE",
+  "desc": "Teens drop in to make a holiday craft to keep or give, with hot apple cider and holiday cookies. All materials provided.",
+  "link": "https://www.hoodriverlibrary.org/event/teen-holiday-craft-making-4610",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "teens"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Lego Club & Kids Doodle Club (Hood River Library)",
+  "category": "Public Library",
+  "dates": "Lego: Thursdays 4–5 PM · Doodle: Tuesdays 4–5 PM",
+  "location": "Hood River Library, 502 State St",
+  "ages": "Ages 5–12",
+  "cost": "FREE",
+  "desc": "Two weekly after-school clubs: build Lego on Thursdays, and learn a new drawing trick on Tuesdays. No Lego Club Dec 24.",
+  "link": "https://www.hoodriverlibrary.org/event/lego-club-4029",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "kids"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Family Noon Year's Eve Party",
+  "category": "Public Library",
+  "dates": "Thu, Dec 31, 2026 · 11 AM–12 PM",
+  "until": "2026-12-31",
+  "location": "White Salmon Valley Community Library",
+  "ages": "Families",
+  "cost": "FREE",
+  "desc": "A New Year's party that counts down to NOON, with crafts, music and dancing. Little ones celebrate and still make it home for nap.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa4985ad969270055348424",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "Teddy Bear Sleepover",
+  "category": "Public Library",
+  "dates": "Drop off Thu, Jan 28, 2027 · pick up Fri, Jan 29 at 6:15 PM",
+  "until": "2027-01-29",
+  "location": "White Salmon Valley Community Library",
+  "ages": "Young kids",
+  "cost": "FREE",
+  "desc": "Leave a (second-favorite) stuffed animal at the library on Thursday. Come back Friday evening in pajamas for a story, a cookie, and a slideshow of your teddy's night at the library.",
+  "link": "https://fvrlibraries.bibliocommons.com/v2/events/6aa4973f7825b40064068cbd",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids"
+  ],
+  "types": [
+   "library",
+   "events"
+  ]
+ },
+ {
+  "name": "FVRL Experience Pass: Free Museum Tickets",
+  "category": "Public Library",
+  "dates": "Year-round · reserve up to 3 months ahead",
+  "location": "Columbia Gorge Museum, Columbia Gorge Discovery Center, Wonderworks (The Dalles), Portland venues",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "With a Fort Vancouver Regional Libraries card (Skamania and Klickitat), reserve free passes to Gorge museums and Portland spots. Sign in, pick a date, print the pass. A great winter-break outing.",
+  "link": "https://www.fvrl.org/explore/experience-pass/",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "arts"
+  ]
+ },
+ {
+  "name": "Discover & Go: Free Museum & State Park Passes (OR)",
+  "category": "Public Library",
+  "dates": "Year-round · reserve online",
+  "location": "With a Hood River County or Wasco County library card",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Oregon library cards get free family passes to places like OMSI, the Discovery Center, Fort Dalles Museum and the Columbia Gorge Museum, plus a free Oregon State Parks parking pass. Most venues allow one pass per family per year, so Jan 1 starts a fresh year.",
+  "link": "https://www.wascocountylibrary.com/discover-go-passes",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "arts",
+   "outdoors"
+  ]
+ },
+ {
+  "name": "Check Out Washington: Free State Parks Backpack",
+  "category": "Public Library",
+  "dates": "Year-round · place a hold",
+  "location": "Any FVRL branch",
+  "ages": "All ages",
+  "cost": "FREE",
+  "desc": "Borrow a backpack with a Discover Pass, binoculars and field guides. It covers parking at Beacon Rock, Columbia Hills and other state parks, so a winter walk costs nothing. (It doesn't cover Sno-Parks.)",
+  "link": "https://www.fvrl.org/explore/washington-backpacks/",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "library",
+   "outdoors"
+  ]
+ },
+ {
+  "name": "Cut Your Own Tree: Gifford Pinchot",
+  "category": "Outdoors",
+  "dates": "Permits on sale now · season through Dec 31",
+  "until": "2026-12-31",
+  "location": "Mt Adams Ranger District, 2455 Hwy 141, Trout Lake · Little Mountain Hardware · Recreation.gov",
+  "ages": "All ages",
+  "cost": "$5 · FREE for 4th graders",
+  "desc": "A Christmas tree permit is $5, up to five per household. Fourth graders get one free: print an Every Kid Outdoors voucher at everykidoutdoors.gov and bring it to a forest office. Roads can be snowy, so bring chains, warm layers and a saw.",
+  "link": "https://www.fs.usda.gov/r06/giffordpinchot/newsroom/releases/gifford-pinchot-national-forest-2026-christmas-tree-permits",
+  "counties": [
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "outdoors"
+  ]
+ },
+ {
+  "name": "Cut Your Own Tree: Mt. Hood",
+  "category": "Outdoors",
+  "dates": "Season through Dec 31",
+  "until": "2026-12-31",
+  "location": "Tum-A-Lum Lumber, 408 Hwy 35, Hood River · Parkdale & Dufur district offices · Recreation.gov",
+  "ages": "All ages",
+  "cost": "$5 · FREE for 4th graders",
+  "desc": "Pick your own tree on Mt. Hood for a $5 permit. Tum-A-Lum in Hood River sells them with no extra fee. Fourth graders with an Every Kid Outdoors pass get a free permit at a district office (the student has to come along).",
+  "link": "https://www.fs.usda.gov/r06/mthood/permits/christmas-trees",
+  "counties": [
+   "Hood River",
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "outdoors"
+  ]
+ },
+ {
+  "name": "Sledding at White River West Sno-Park",
+  "category": "Outdoors",
+  "dates": "When there's snow · Sno-Park permit needed Nov 1 – Apr 30",
+  "location": "White River West Sno-Park, OR-35 about 4 miles north of US-26, Mt. Hood",
+  "ages": "All ages",
+  "cost": "FREE sledding · $4 parking permit",
+  "desc": "A popular free snow-play hill with mountain views. Little John Sno-Park, the usual sledding hill up Hwy 35 from Hood River, is closed this season because of the Grasshopper Fire, so plan on White River West. Every car needs a $4 Oregon Sno-Park day permit, sold in person at DMV offices and permit agents. Stay well back from the river.",
+  "link": "https://www.fs.usda.gov/r06/mthood/recreation/white-river-west-sno-park",
+  "counties": [
+   "Hood River",
+   "Wasco",
+   "Skamania",
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "outdoors"
+  ]
+ },
+ {
+  "name": "Goldendale Observatory Winter Programs",
+  "category": "Outdoors",
+  "dates": "Friday movies 7 PM · weekend ranger programs · through Mar 28, 2027",
+  "location": "Goldendale Observatory State Park",
+  "ages": "All ages",
+  "cost": "FREE · Discover Pass to park",
+  "desc": "Free Friday family movie nights and weekend nature programs at the observatory this winter. Register ahead for each one on the State Parks calendar. Parking needs a Discover Pass; borrow one free from the library (see Check Out Washington).",
+  "link": "https://parks.wa.gov/news/2026/goldendale-observatory-will-host-friday-movies-weekend-programs",
+  "counties": [
+   "Klickitat"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "outdoors",
+   "events"
+  ]
+ },
+ {
+  "name": "Beacon Rock First Day Hike",
+  "category": "Outdoors",
+  "dates": "Fri, Jan 1, 2027 · 10–11 AM (easier Doetsch Loop hike at 1 PM)",
+  "until": "2027-01-01",
+  "location": "Beacon Rock State Park trailhead",
+  "ages": "Kids & teens",
+  "cost": "FREE",
+  "desc": "Start the new year with a ranger-led hike to the top of Beacon Rock (1.8 miles round trip, about 800 feet of climbing). Jan 1 is a free park day, so parking is free, and hikers get a 2027 First Day Hikes button. Register by emailing beacon.rock@parks.wa.gov.",
+  "link": "https://parks.wa.gov/find-activity/event-calendar/2027/jan/beacon-rock-state-first-day-hike",
+  "counties": [
+   "Skamania"
+  ],
+  "ageGroups": [
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "outdoors"
+  ]
+ },
+ {
+  "name": "$1 Saturday Swim (Hood River Aquatic Center)",
+  "category": "Outdoors",
+  "dates": "Saturdays · 12–5 PM (closed Dec 24, 25, 31 & Jan 1)",
+  "location": "Hood River Aquatic Center, 1601 May St",
+  "ages": "All ages",
+  "cost": "$1",
+  "desc": "Indoor open swim for $1 every Saturday afternoon, with a wade pool for little ones. An easy warm-up on a cold winter-break weekend.",
+  "link": "https://hoodriverparksandrec.org/pool-schedule",
+  "counties": [
+   "Hood River"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "outdoors",
+   "events"
+  ]
+ },
+ {
+  "name": "Wonderworks Children's Museum",
+  "category": "Community/Nature",
+  "dates": "Wed–Sat 9 AM–1 PM · closed Dec 22 – Jan 1",
+  "location": "206 Madison St, The Dalles",
+  "ages": "Babies to elementary",
+  "cost": "$5 · $2 with EBT or WIC",
+  "desc": "A hands-on play museum for younger kids. Families on WIC or EBT pay $2 each; show your award letter at the desk. Free with an FVRL Experience Pass. Open the weeks around winter break but closed Dec 22 through Jan 1.",
+  "link": "https://wonderworksgorge.org/programs-events",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids"
+  ],
+  "types": [
+   "events"
+  ]
+ },
+ {
+  "name": "Columbia Gorge Discovery Center: Live Raptors",
+  "category": "Community/Nature",
+  "dates": "Tue–Sun 10 AM–4 PM · raptor programs Tue & Thu 2 PM, Sat & Sun 11 AM & 2 PM",
+  "location": "Columbia Gorge Discovery Center, The Dalles",
+  "ages": "All ages",
+  "cost": "FREE under 6 · $7 ages 6–16",
+  "desc": "See live birds of prey up close, included with admission. Kids 5 and under are free. Use a library pass (Discover & Go or FVRL Experience Pass) to bring the whole family for free.",
+  "link": "https://www.gorgediscovery.org/visit",
+  "counties": [
+   "Wasco"
+  ],
+  "ageGroups": [
+   "babies",
+   "kids",
+   "teens"
+  ],
+  "types": [
+   "events",
+   "outdoors"
+  ]
+ }
+];
+
+const translations = {
+ "Hood River County Christmas Project": {
+  "name": "Proyecto de Navidad del Condado de Hood River",
+  "desc": "Una caja de comida para las fiestas y tarjetas de regalo para sus hijos. Para familias del condado de Hood River (Hood River, Odell, Parkdale, Cascade Locks, Mt Hood) que cumplan con las guías de ingresos de Oregon. No necesita celebrar la Navidad, y registrarse no afecta SNAP, FISH ni su estatus migratorio. Formulario en español. Ayuda por llamada o texto: 541-329-0901."
+ },
+ "Skamania County Christmas Basket": {
+  "name": "Canasta de Navidad del Condado de Skamania",
+  "desc": "Una cena de Navidad completa (jamón, papas, pan y más) entregada en su casa, más un regalo para cada niño de 18 años o menos y cada persona mayor del hogar. Llene el formulario para su familia o nomine a un vecino. No se rechaza a nadie y no se pregunta por ingresos ni identificación. Solo para residentes del condado de Skamania. El formulario dice \"jueves 4 de diciembre a las 5:30 PM\", pero el 4 de diciembre es viernes este año; envíelo antes del jueves 3 de diciembre. El formulario está en inglés. Preguntas: parks@skamaniacounty.gov."
+ },
+ "Goldendale Giving Tree": {
+  "name": "Árbol de Donaciones de Goldendale",
+  "desc": "Programa de regalos navideños para familias de Goldendale que necesitan ayuda. Recoja una solicitud en Pat's Place (105 W Main St) o en la oficina de vivienda de WAGAP (150 W Main St). No hay fecha límite publicada, así que no espere. Preguntas: Taletha Wagoner, 509-493-3716."
+ },
+ "Lyle School District Holiday Gift Drive": {
+  "name": "Colecta de Regalos del Distrito Escolar de Lyle",
+  "desc": "Si sus hijos van a las escuelas de Lyle, incluida la primaria de Dallesport, puede inscribirlos en la colecta de regalos del distrito. Llene un formulario en línea por niño. La oficina del distrito puede ayudarle: 509-365-2211."
+ },
+ "Salvation Army Angel Tree (The Dalles)": {
+  "name": "Árbol de Ángeles del Ejército de Salvación (The Dalles)",
+  "desc": "Las familias del condado de Wasco, incluidas The Dalles y Mosier, se inscriben aquí para recibir regalos de Navidad para sus hijos. La inscripción abre temprano y se llena, así que llame pronto al 541-296-6417 y pregunte cómo registrarse. Horario de servicios sociales: lunes, miércoles y viernes, 1–3 PM."
+ },
+ "St. Vincent de Paul Holiday Help (The Dalles)": {
+  "name": "Ayuda Navideña de San Vicente de Paúl (The Dalles)",
+  "desc": "San Vicente de Paúl ayuda a las familias en las fiestas con una caja de comida navideña (junto con el Ejército de Salvación), un juguete para cada niño y una cena familiar. Llame al 541-296-9566 (lun–jue 10–5, vie 10–3) para preguntar cómo inscribirse este año. Su sitio tiene una página de ayuda en español."
+ },
+ "Lyle Lions Christmas Food Box": {
+  "name": "Caja de Comida Navideña de los Leones de Lyle",
+  "desc": "En años pasados, los Leones de Lyle han dado cajas de comida con pavo y guarniciones a familias del distrito escolar de Lyle. La inscripción de este año aún no se ha publicado. Llame a la oficina escolar de Lyle al 509-365-2211 para preguntar."
+ },
+ "WAGAP Tree of Joy": {
+  "name": "Árbol de la Alegría de WAGAP",
+  "desc": "El Árbol de la Alegría une a niños con donantes locales para ropa de invierno, un abrigo y un regalo de su lista de deseos. Este año sirvió a familias de Klickitat fuera de Goldendale. Si no alcanzó a inscribirse, llame a WAGAP al 509-493-2662 y pregunte si quedan lugares. Las familias de Goldendale pueden usar el Árbol de Donaciones de Goldendale, y las de Skamania la Canasta de Navidad."
+ },
+ "Mill A Giving Tree": {
+  "name": "Árbol de Donaciones de Mill A",
+  "desc": "El año pasado, el distrito escolar de Mill A organizó un Árbol de Donaciones para dar regalos a algunas de sus familias. Si sus hijos asisten a Mill A o PCIA y necesita ayuda, llame o envíe un texto a la oficina al 509-774-7072 y pregunte si se repite este año."
+ },
+ "Heating Bill Help: WAGAP (WA)": {
+  "name": "Ayuda con la Calefacción: WAGAP (WA)",
+  "desc": "Los hogares de bajos ingresos de los condados de Skamania y Klickitat pueden recibir ayuda para pagar la calefacción: electricidad, gas, propano o leña. Llame al 509-493-2662 ext. 202 o gratis al 800-755-1192 ext. 202 (Skamania: 509-427-8229) y deje su nombre, teléfono y pueblo. El personal devuelve las llamadas en orden. Traiga identificación de cada adulto, tarjetas de Seguro Social de todos, ingresos del último mes y una factura de calefacción. El formulario de WAGAP está en español."
+ },
+ "Heating Bill Help: MCCAC (OR)": {
+  "name": "Ayuda con la Calefacción: MCCAC (OR)",
+  "desc": "Mid-Columbia Community Action Council ayuda a hogares de Hood River y Wasco con facturas de calefacción y servicios. Los fondos son limitados, así que llame para preguntar qué hay disponible: 541-298-5131, ext. 206 en The Dalles (marque 3 para español) o ext. 310 en Hood River (marque 4 para español), o escriba a energy@mccac.com. Hay formulario en español. Si tiene un aviso de corte, la oficina de The Dalles atiende sin cita los martes, 9–12 y 1–4."
+ },
+ "Pacific Power Bill Discount (OR)": {
+  "name": "Descuento en la Factura de Pacific Power (OR)",
+  "desc": "Si su factura de luz es de Pacific Power en Oregon, puede calificar para un descuento mensual con solo declarar los ingresos de su hogar. Los clientes que califican también tienen más protección contra cortes en invierno. Llame al 1-888-225-2611 (español). Gran parte de The Dalles tiene servicio de Northern Wasco PUD; pregunte a MCCAC por ese descuento."
+ },
+ "Need a Warm Coat?": {
+  "name": "¿Necesita un Abrigo?",
+  "desc": "Cada invierno, grupos locales recolectan abrigos, botas, gorros y guantes para niños del Gorge, y el personal escolar ayuda a repartirlos. Lo más fácil es preguntar al consejero de la escuela de su hijo. También puede llamar a WAGAP (Stevenson 509-427-8229, Bingen 509-493-2662) del lado de Washington, o a The Next Door (541-386-6665) del lado de Oregon."
+ },
+ "Washington 211": {
+  "name": "Washington 211",
+  "desc": "¿No sabe por dónde empezar? Las familias de Skamania y Klickitat pueden marcar 211 para hablar con una persona que le orienta sobre comida, ayuda navideña, calefacción, vivienda y cuidado infantil. Gratis, confidencial y en varios idiomas."
+ },
+ "211info (Oregon)": {
+  "name": "211info (Oregon)",
+  "desc": "Línea de ayuda gratuita de Oregon para cajas de comida navideñas, juguetes, ayuda con la calefacción o un lugar cálido para quedarse. Su sitio tiene una lista de programas de canastas navideñas. Ayuda en español por teléfono, texto y correo electrónico."
+ },
+ "The Next Door: Family Help in English & Spanish": {
+  "name": "The Next Door: Ayuda Familiar en Inglés y Español",
+  "desc": "The Next Door ofrece programas familiares gratuitos en Hood River, como visitas a casa para padres nuevos y futuros padres, y Nuestra Comunidad Sana, un equipo de promotores de salud que sirve a familias latinas. Llame al 541-386-6665 para conectarse con ayuda local este invierno. Sitio en español: nextdoorincespanol.org."
+ },
+ "Hood River Shelter (MCCAC)": {
+  "name": "Refugio de Hood River (MCCAC)",
+  "desc": "Si no tiene un lugar cálido para dormir, el refugio de MCCAC recibe personas por orden de llegada según haya camas, con personal las 24 horas. Llame antes para preguntar si hay lugar para familias con niños: 541-298-5131 (marque 4 para español). Línea de camas por clima severo: 541-965-0990."
+ },
+ "Free Books by Mail for Kids Under 5 (OR)": {
+  "name": "Libros Gratis por Correo para Niños Menores de 5 (OR)",
+  "desc": "Las familias de Oregon pueden inscribir a cada niño menor de 5 años para recibir un libro gratis por correo cada mes, sin requisito de ingresos. Un libro en el buzón es una linda sorpresa de invierno."
+ },
+ "WIC Food Help for Little Ones (OR)": {
+  "name": "WIC: Ayuda con Comida para los Más Pequeños (OR)",
+  "desc": "WIC da alimentos saludables y apoyo nutricional a mujeres embarazadas, mamás nuevas y niños menores de 5 años. Papás, abuelos y padres de crianza también pueden solicitar. Llame al 541-506-2600 para una cita. Sitio en español: es.ncphd.org. Las familias de Washington usan WIC de Washington: 1-800-841-1410."
+ },
+ "Free Community Thanksgiving Meal (Hood River)": {
+  "name": "Cena Comunitaria Gratuita de Acción de Gracias (Hood River)",
+  "desc": "La 11.ª cena anual gratuita de Acción de Gracias, abierta a todos: familias, personas solas y amigos de ambos lados del río. No necesita inscribirse. Solo venga entre el mediodía y las 2."
+ },
+ "Backwoods Weekend & Break Food Bags": {
+  "name": "Bolsas de Comida de Backwoods para Fines de Semana y Vacaciones",
+  "desc": "La Fundación Backwoods de Carson envía a casa bolsas de comidas fáciles para fines de semana y vacaciones escolares. Los niños se inscriben por medio de la escuela, de forma privada. Pregunte al maestro o a la oficina escolar antes de las vacaciones de invierno (21 dic–1 ene)."
+ },
+ "Weekend Backpack Food (The Dalles)": {
+  "name": "Mochila de Comida para el Fin de Semana (The Dalles)",
+  "desc": "Los niños de todas las escuelas del Distrito 21 pueden llevar a casa una bolsa de comida con dos desayunos, dos almuerzos y dos cenas. Pida al consejero u oficina escolar que los inscriba, y pregunte si habrá bolsas antes de las vacaciones de invierno."
+ },
+ "Lunch with Tumi: Winter-Break Lunch & Dog Storytime": {
+  "name": "Almuerzo con Tumi: Comida y Cuentos con un Perrito",
+  "desc": "Tres almuerzos en la biblioteca durante las vacaciones: los niños preparan un sándwich, toman papitas y un postre, y luego escuchan cuentos navideños con Tumi, un labradoodle amigable. Solo vengan."
+ },
+ "WAGAP Food Banks: Stevenson & Bingen": {
+  "name": "Bancos de Comida de WAGAP: Stevenson y Bingen",
+  "desc": "Las familias de bajos ingresos pueden recoger una caja de comida mensual gratis con enlatados, verduras frescas, pan y carne congelada, según el tamaño de su hogar. Acción de Gracias, Nochebuena y la víspera de Año Nuevo caen en jueves este año, así que llame antes: 509-493-2662 ext. 208."
+ },
+ "WAGAP Food Banks: Goldendale & Klickitat": {
+  "name": "Bancos de Comida de WAGAP: Goldendale y Klickitat",
+  "desc": "Cajas de comida mensuales para familias de bajos ingresos en el centro y este del condado de Klickitat. Goldendale: 509-281-2203. Klickitat: 509-493-2662 ext. 208. Llame antes en días festivos por si cambia el horario."
+ },
+ "WAGAP Mobile Food Bank": {
+  "name": "Banco de Comida Móvil de WAGAP",
+  "desc": "Comida gratis llega a pueblos rurales de Klickitat una vez al mes. En semanas festivas la ruta puede cambiar; revise el volante más reciente (también en español) o llame al 509-493-2662 ext. 208 antes de ir."
+ },
+ "FISH Food Bank (Hood River)": {
+  "name": "Banco de Comida FISH (Hood River)",
+  "desc": "Comida gratis para cualquier familia que la necesite. No se pide identificación, y también se atiende a familias que cruzan el puente desde Washington. Cerrado 27 nov, 25 dic, 28 dic y 1 ene. Teléfono (541) 386-3474, lun, mié y vie 8–11 AM. El sitio tiene páginas en español."
+ },
+ "Salvation Army Food Pantry (The Dalles)": {
+  "name": "Despensa del Ejército de Salvación (The Dalles)",
+  "desc": "Una despensa donde usted escoge la comida que su familia va a usar. No se pide identificación para una caja de comida, y también dan ropa y artículos para el hogar. Traiga una bolsa o caja. Llame al 541-296-6417 para confirmar cierres por días festivos."
+ },
+ "St. Vincent de Paul Free Meals & Pantry (The Dalles)": {
+  "name": "Comidas Gratis y Despensa de San Vicente de Paúl (The Dalles)",
+  "desc": "San Vicente de Paúl y sus socios sirven comidas gratis en The Dalles durante la semana. No hay que inscribirse, solo venga a la hora de comer. En la despensa, voluntarios le acompañan para que escoja lo que su familia necesita. Llame al 541-296-9566 para el horario de comidas de esta semana."
+ },
+ "Rural Food Pantries: Dufur, Maupin, Wamic": {
+  "name": "Despensas Rurales: Dufur, Maupin, Wamic",
+  "desc": "Las familias del sur de Wasco no tienen que manejar hasta The Dalles. Estas despensas dan comida para unos días en cada visita, sin pedir identificación ni comprobante de ingresos. Los horarios son de una guía de 2024, así que llame antes: Dufur 541-467-2509, Maupin 541-973-7814."
+ },
+ "Mosier Soup Night & Food Boxes": {
+  "name": "Noche de Sopa y Cajas de Comida en Mosier",
+  "desc": "Vecinos de Mosier organizan una noche de sopa gratis cada semana y entregan cajas de comida a familias que las necesitan. El invierno pasado fue los miércoles, 4–6 PM. Escriba a tmosiercarescoalition@gmail.com para preguntar por este año o pedir una caja."
+ },
+ "Community Lunches Open to All (Klickitat)": {
+  "name": "Almuerzos Comunitarios Abiertos a Todos (Klickitat)",
+  "desc": "Almuerzos calientes entre semana, organizados para personas mayores pero abiertos a todos, así que los abuelos pueden traer a sus nietos en las vacaciones. La donación es sugerida, no obligatoria. Llame antes en semanas festivas."
+ },
+ "Lyle Lions Pancake Breakfast": {
+  "name": "Desayuno de Panqueques de los Leones de Lyle",
+  "desc": "Desayuno comunitario de panqueques una vez al mes. Niños menores de 5 comen gratis y de 6 a 12 pagan $5. Confirme las fechas en fines de semana festivos."
+ },
+ "Hood River Winter Farmers Market": {
+  "name": "Mercado de Agricultores de Invierno de Hood River",
+  "desc": "El mercado de invierno de Gorge Grown tiene verduras locales de temporada y música en vivo. Si usa SNAP, pase primero por el puesto de información y pregunte por dólares adicionales para frutas y verduras."
+ },
+ "The Dalles Starlight Parade & Tree Lighting": {
+  "name": "Desfile Starlight y Encendido del Árbol en The Dalles",
+  "desc": "El 37.º Desfile Starlight ilumina el centro la noche después de Acción de Gracias, con el tema \"Fiestas Alrededor del Mundo\". Después, caminen a la Cámara de Comercio para chocolate caliente, galletas, palomitas y el encendido del árbol comunitario."
+ },
+ "Kids' Ornaments & Movie at Columbia Center for the Arts": {
+  "name": "Adornos y Película en Columbia Center for the Arts",
+  "desc": "En la Casa Abierta navideña, los niños hacen adornos de metal repujado y decoran galletas; luego se proyecta El Cuento de Navidad de los Muppets a la 1:30. Entrada gratis (se aceptan donaciones). Confirmar asistencia ayuda a planear materiales."
+ },
+ "Skamania Lodge Holiday Light Walk": {
+  "name": "Paseo de Luces Navideñas en Skamania Lodge",
+  "desc": "Caminen por los senderos iluminados del bosque y las decoraciones navideñas del lodge cualquier noche desde el fin de semana de Acción de Gracias hasta el fin de las vacaciones. Los caminos pueden estar mojados o con hielo; traigan buen calzado."
+ },
+ "Christmas on the Farm at Cedar Creek Alpacas": {
+  "name": "Navidad en la Granja de Alpacas Cedar Creek",
+  "desc": "Visiten las alpacas en una granja decorada para las fiestas. La entrada es gratis, y Santa visita el sábado 12 de diciembre. Cerrado lunes, martes, 24 y 25 de diciembre."
+ },
+ "Cocoa Crawl & Bigfoot Scavenger Hunt": {
+  "name": "Ruta del Chocolate y Búsqueda de Bigfoot",
+  "desc": "Compren una taza de $5 en la Cámara de Comercio y llénenla gratis con chocolate caliente en los negocios participantes. Los niños también pueden recoger un formulario de búsqueda de Bigfoot, encontrarlo en cada parada y entregarlo para ganar un premio."
+ },
+ "Stevenson Tree Lighting & Starlight Parade": {
+  "name": "Encendido del Árbol y Desfile Starlight en Stevenson",
+  "desc": "Villancicos y galletas, chocolate y sidra gratis en el encendido del árbol del juzgado, y luego el Desfile Starlight por el pueblo. El tema de este año es \"Navidad de Pueblo a la Antigua\". Las familias pueden inscribir una carroza o vehículo decorado antes del 2 de diciembre."
+ },
+ "Hood River Tree Lighting & Festival": {
+  "name": "Encendido del Árbol y Festival de Hood River",
+  "desc": "El centro cierra sus calles para una noche de luces y música. El árbol comunitario se enciende entre 5:45 y 6, y Santa y la Sra. Claus están junto al árbol de 5 a 6:30. La comida y las compras cuestan aparte."
+ },
+ "White Salmon Village Lights": {
+  "name": "Village Lights en White Salmon",
+  "desc": "Un día completo en el centro: carrera gratis de suéteres feos para niños de 2 a 7 años a las 9:30 AM, camiones de bomberos y chocolate de 10 a 1, alpacas para acariciar de 4 a 7, encendido del árbol y la menorá con galletas, s'mores y sidra a las 5, y fotos con Santa en Mosko Moto de 6 a 8."
+ },
+ "Winter Celebration at White Salmon Library": {
+  "name": "Celebración de Invierno en la Biblioteca de White Salmon",
+  "desc": "La parte de la biblioteca en Village Lights, con refrigerios, actividades para niños, una exposición de colchas y música en vivo toda la tarde. Solo pasen."
+ },
+ "Christmas in the Gorge at the Columbia Gorge Museum": {
+  "name": "Navidad en el Gorge en el Museo Columbia Gorge",
+  "desc": "Música de banda, chocolate caliente con todo, y un árbol de Recuerdos del Gorge donde los niños cuelgan un adorno con su recuerdo favorito. Gratis con un pase de museo de FVRL (vea la tarjeta del Experience Pass)."
+ },
+ "Christmas in Carson: Tree Lighting & Santa": {
+  "name": "Navidad en Carson: Encendido del Árbol y Santa",
+  "desc": "Encendido del árbol de Carson, con fotos con Santa y galletas y chocolate gratis. Los negocios de Carson tienen regalos y promociones todo el fin de semana, 4–6 de diciembre."
+ },
+ "Maupin Holiday Festival": {
+  "name": "Festival Navideño de Maupin",
+  "desc": "Manualidades familiares, pintacaritas y un Candyland de tamaño real en la biblioteca. Santa llega a las 2, paseos en carreta de heno de 2 a 4, y el árbol se enciende a las 5. Traigan una taza para probar bebidas calientes y sopa."
+ },
+ "Cascade Singers Holiday Concert": {
+  "name": "Concierto Navideño de los Cascade Singers",
+  "desc": "El concierto navideño del coro comunitario. La entrada es gratis, y la función del domingo por la tarde es ideal con niños pequeños."
+ },
+ "History Museum Holiday Open House": {
+  "name": "Casa Abierta Navideña del Museo de Historia",
+  "desc": "Una tarde festiva en el museo con música en vivo de Harmony of the Gorge y Holiday Brass. Los niños de 10 años o menos siempre entran gratis."
+ },
+ "Welcome Winter at Maryhill Stonehenge": {
+  "name": "Bienvenida al Invierno en Stonehenge de Maryhill",
+  "desc": "Pasen la mañana del día más corto del año en Stonehenge sobre el Columbia, con manualidades gratis y fotos familiares. Venden pan dulce y bebidas. (El museo está cerrado en invierno.)"
+ },
+ "Winter Reading: Season of Wonder": {
+  "name": "Lectura de Invierno: Temporada de Maravillas",
+  "desc": "Los niños de 0 a 12 recogen un separador en cualquier sucursal y ganan un boleto de rifa por cada hora de lectura, con premios como un proyector de auroras boreales y sets de LEGO. Los adolescentes tienen su propia tarjeta de bingo y rifa."
+ },
+ "Holiday Crafts & Ornaments at The Dalles Library": {
+  "name": "Manualidades y Adornos Navideños en la Biblioteca de The Dalles",
+  "desc": "Los niños hacen un regalo hecho a mano: posavasos el 8 de diciembre y globos de nieve el 22 de diciembre, en vacaciones. Varios días de diciembre pueden pasar cuando quieran a hacer un adorno."
+ },
+ "Fun Fridays for Kids 5–10": {
+  "name": "Viernes Divertidos para Niños de 5 a 10",
+  "desc": "Un rato semanal después de la escuela con una manualidad, juego o actividad de programación diferente cada viernes, hasta febrero."
+ },
+ "Family Nights at The Dalles Library": {
+  "name": "Noches Familiares en la Biblioteca de The Dalles",
+  "desc": "Diversión entre semana para toda la familia: cuentos con chocolate caliente, noches de ciencia y noches de manualidades. El último jueves del mes hay Noche de Lego y Pizza, incluida la víspera de Año Nuevo."
+ },
+ "Cuentos en Español: Bilingual Storytime": {
+  "name": "Cuentos en Español: Hora de Cuentos Bilingüe",
+  "desc": "Hora de cuentos semanal en español e inglés con canciones, juegos de manos, merienda y manualidades. Todos son bienvenidos, y continúa el 23 y 30 de diciembre."
+ },
+ "Bilingual Family Storytime / Hora de Cuento": {
+  "name": "Hora de Cuento Bilingüe en Familia",
+  "desc": "Historias, canciones y actividades en inglés y español para niños de 0 a 5 años y sus adultos, durante todas las vacaciones."
+ },
+ "Library Movies at the Granada: Elf & Frozen": {
+  "name": "Películas de la Biblioteca en el Granada: Elf y Frozen",
+  "desc": "La biblioteca proyecta películas navideñas en el histórico teatro Granada. Vengan disfrazados a Frozen el 23 de diciembre: el mejor disfraz de príncipe o princesa gana un premio."
+ },
+ "Hanukkah Party at The Dalles Library": {
+  "name": "Fiesta de Janucá en la Biblioteca de The Dalles",
+  "desc": "Una celebración familiar del Festival de las Luces con dulces de Janucá, manualidades, actividades y un cuento. Todos son bienvenidos."
+ },
+ "Christmas in LibraryLand: Holiday Tap Show": {
+  "name": "Navidad en LibraryLand: Show de Tap Navideño",
+  "desc": "Bailarines de las clases gratuitas de tap de la biblioteca presentan su rutina, junto con The Dalles Ukulele Players. Un show comunitario para toda la familia."
+ },
+ "Red Yarn: Winter in the Deep Woods": {
+  "name": "Red Yarn: Invierno en el Bosque",
+  "desc": "El artista familiar Red Yarn trae un show para cantar y bailar con canciones folclóricas y de invierno sobre animalitos del bosque preparándose para el frío. Ideal para los más pequeños."
+ },
+ "Gingerbread Houses, Wreaths & Centerpieces": {
+  "name": "Casitas de Jengibre, Coronas y Centros de Mesa",
+  "desc": "Pasen a decorar una casita de jengibre (materiales incluidos mientras duren) o a hacer juntos una corona o centro de mesa navideño. Para las manualidades con ramas, traigan tijeras de podar si tienen."
+ },
+ "Cardboard Gingerbread Houses (Maupin)": {
+  "name": "Casitas de Jengibre de Cartón (Maupin)",
+  "desc": "Los niños construyen casitas de jengibre de cartón con una sierra segura para niños y las decoran con \"glaseado\" de marcador blanco. Una manualidad navideña que el perro no se puede comer."
+ },
+ "Winter Break Drop-Ins at Stevenson Library": {
+  "name": "Actividades de Vacaciones en la Biblioteca de Stevenson",
+  "desc": "Diversión gratis sin inscripción en ambas vacaciones escolares: Nintendo Switch en pantalla grande, retos de LEGO, proyectos de arte y un laboratorio de ciencia con dulces."
+ },
+ "Family Movie Matinees (Hood River Library)": {
+  "name": "Películas Familiares (Biblioteca de Hood River)",
+  "desc": "Películas familiares gratis con bocadillos y bebidas. Dos caen en las vacaciones de invierno."
+ },
+ "First-Sunday Movies (Stevenson & White Salmon)": {
+  "name": "Películas del Primer Domingo (Stevenson y White Salmon)",
+  "desc": "El primer domingo de cada mes, ambas bibliotecas proyectan una película familiar gratis. Stevenson agrega una manualidad o reto de construcción. El 3 de enero es el último día de vacaciones."
+ },
+ "Teen Nights at the Library": {
+  "name": "Noches para Adolescentes en la Biblioteca",
+  "desc": "Película de terror con pizza gratis en Stevenson, Calabozos y Dragones en Goldendale (nuevos jugadores bienvenidos), y juegos, manualidades y bocadillos después de horario en White Salmon."
+ },
+ "Teen Holiday Craft Making (Hood River Library)": {
+  "name": "Manualidades Navideñas para Adolescentes (Hood River)",
+  "desc": "Los adolescentes pasan a hacer una manualidad navideña para quedarse o regalar, con sidra de manzana caliente y galletas. Todos los materiales incluidos."
+ },
+ "Lego Club & Kids Doodle Club (Hood River Library)": {
+  "name": "Club de Lego y Club de Dibujo (Biblioteca de Hood River)",
+  "desc": "Dos clubes semanales después de la escuela: Lego los jueves y una nueva técnica de dibujo los martes. No hay Club de Lego el 24 de diciembre."
+ },
+ "Family Noon Year's Eve Party": {
+  "name": "Fiesta Familiar de \"Mediodía\" de Año Nuevo",
+  "desc": "Una fiesta de Año Nuevo con cuenta regresiva al MEDIODÍA, con manualidades, música y baile. Los pequeños celebran y llegan a casa a tiempo para la siesta."
+ },
+ "Teddy Bear Sleepover": {
+  "name": "Pijamada de Ositos",
+  "desc": "Dejen un peluche (el segundo favorito) en la biblioteca el jueves. Regresen el viernes en pijama para un cuento, una galleta y ver fotos de la noche de su osito en la biblioteca."
+ },
+ "FVRL Experience Pass: Free Museum Tickets": {
+  "name": "Experience Pass de FVRL: Entradas Gratis a Museos",
+  "desc": "Con su tarjeta de las bibliotecas FVRL (Skamania y Klickitat), reserve pases gratis a museos del Gorge y de Portland. Inicie sesión, escoja la fecha e imprima el pase. Una buena salida para las vacaciones."
+ },
+ "Discover & Go: Free Museum & State Park Passes (OR)": {
+  "name": "Discover & Go: Pases Gratis a Museos y Parques (OR)",
+  "desc": "Las tarjetas de biblioteca de Hood River y Wasco dan pases familiares gratis a lugares como OMSI, el Discovery Center, el Museo Fort Dalles y el Museo Columbia Gorge, además de un pase de estacionamiento de parques estatales de Oregon. La mayoría permite un pase por familia al año, así que el 1 de enero empieza un año nuevo."
+ },
+ "Check Out Washington: Free State Parks Backpack": {
+  "name": "Check Out Washington: Mochila Gratis de Parques Estatales",
+  "desc": "Pidan prestada una mochila con un Discover Pass, binoculares y guías de campo. Cubre el estacionamiento en Beacon Rock, Columbia Hills y otros parques estatales, así que una caminata de invierno no cuesta nada. (No cubre los Sno-Parks.)"
+ },
+ "Cut Your Own Tree: Gifford Pinchot": {
+  "name": "Corte su Propio Árbol: Gifford Pinchot",
+  "desc": "Un permiso para árbol de Navidad cuesta $5, hasta cinco por hogar. Los niños de 4.º grado reciben uno gratis: impriman un cupón de Every Kid Outdoors en everykidoutdoors.gov y llévenlo a una oficina forestal. Los caminos pueden tener nieve; lleven cadenas, ropa abrigada y un serrucho."
+ },
+ "Cut Your Own Tree: Mt. Hood": {
+  "name": "Corte su Propio Árbol: Mt. Hood",
+  "desc": "Escojan su árbol en Mt. Hood con un permiso de $5. Tum-A-Lum en Hood River los vende sin cargo extra. Los niños de 4.º grado con un pase Every Kid Outdoors reciben un permiso gratis en una oficina del distrito (el estudiante debe ir)."
+ },
+ "Sledding at White River West Sno-Park": {
+  "name": "Trineo en el Sno-Park White River West",
+  "desc": "Una colina popular y gratuita para jugar en la nieve con vista a la montaña. Little John Sno-Park, la colina de siempre por la Hwy 35 desde Hood River, está cerrada esta temporada por el incendio Grasshopper, así que planeen ir a White River West. Cada carro necesita un permiso de Sno-Park de Oregon de $4 por día, que se vende en persona en el DMV y con agentes autorizados. Manténganse lejos del río."
+ },
+ "Goldendale Observatory Winter Programs": {
+  "name": "Programas de Invierno en el Observatorio de Goldendale",
+  "desc": "Noches de película familiar gratis los viernes y programas de naturaleza los fines de semana este invierno. Regístrense con anticipación en el calendario de Parques Estatales. Para estacionar se necesita un Discover Pass; pídanlo prestado gratis en la biblioteca."
+ },
+ "Beacon Rock First Day Hike": {
+  "name": "Caminata del Primer Día en Beacon Rock",
+  "desc": "Empiecen el año con una caminata guiada a la cima de Beacon Rock (2.9 km ida y vuelta, unos 240 m de subida). El 1 de enero es día gratis en los parques, así que no se paga estacionamiento, y los caminantes reciben un botón. Regístrense por correo a beacon.rock@parks.wa.gov."
+ },
+ "$1 Saturday Swim (Hood River Aquatic Center)": {
+  "name": "Natación por $1 los Sábados (Centro Acuático de Hood River)",
+  "desc": "Natación libre bajo techo por $1 cada sábado por la tarde, con piscina chica para los pequeños. Una buena forma de entrar en calor en un fin de semana frío."
+ },
+ "Wonderworks Children's Museum": {
+  "name": "Museo Infantil Wonderworks",
+  "desc": "Museo de juego práctico para niños pequeños. Familias con WIC o EBT pagan $2 por persona; muestren su carta de beneficios en la entrada. Gratis con el Experience Pass de FVRL. Abierto las semanas alrededor de las vacaciones, pero cerrado del 22 de diciembre al 1 de enero."
+ },
+ "Columbia Gorge Discovery Center: Live Raptors": {
+  "name": "Centro de Descubrimiento del Columbia Gorge: Aves Rapaces",
+  "desc": "Vean aves rapaces de cerca, incluido con la entrada. Niños de 5 años o menos gratis. Usen un pase de biblioteca (Discover & Go o Experience Pass de FVRL) para que toda la familia entre gratis."
+ }
+};
+
+const ui = {
+  en: {
+    eyebrow: "❄ Open Gorge · Winter 2026–27",
+    title: "Gorge Winter & Holiday Guide",
+    sub: "Free &amp; low-cost fun, plus holiday help for families, across Skamania, Klickitat, Hood River &amp; Wasco counties",
+    search: "Search gifts, meals, events, places…",
+    cost: "Cost", county: "County", age: "Ages", type: "Type",
+    all: "All", free: "Free", low: "Under $10",
+    babies: "Babies/Toddlers", kids: "Kids (4–12)", teens: "Teens",
+    help: "Holiday Help", meals: "Free Meals", events: "Holiday Events", library: "Library",
+    outdoors: "Snow &amp; Outdoors", arts: "Arts &amp; Crafts",
+    helpTitle: "Need help this holiday season?",
+    helpText: "Free gifts for kids, holiday meals, food boxes, warm coats, and help with heating bills. Many sign-ups close in early December, so start here.",
+    helpBtn: "Show holiday help",
+    signUpBy: d => `Sign up by ${d}`,
+    closed: d => `Sign-up closed ${d}`,
+    found: n => `${n} listing${n === 1 ? "" : "s"} found`,
+    moreInfo: "More info →",
+    noResults: "Nothing matches those filters.<br>Try broadening your search.",
+    note: "Dates and rules change. Call or check the link before you go. For anything not listed here, call 211 (free, any language).",
+    locale: "en-US",
+  },
+  es: {
+    eyebrow: "❄ Open Gorge · Invierno 2026–27",
+    title: "Guía de Invierno y Fiestas del Gorge",
+    sub: "Actividades gratuitas y de bajo costo, más ayuda para familias en las fiestas, en los condados de Skamania, Klickitat, Hood River y Wasco",
+    search: "Buscar regalos, comidas, eventos, lugares…",
+    cost: "Costo", county: "Condado", age: "Edades", type: "Tipo",
+    all: "Todo", free: "Gratis", low: "Menos de $10",
+    babies: "Bebés/Niños pequeños", kids: "Niños (4–12)", teens: "Adolescentes",
+    help: "Ayuda en las Fiestas", meals: "Comidas Gratis", events: "Eventos Festivos", library: "Biblioteca",
+    outdoors: "Nieve y Aire Libre", arts: "Arte y manualidades",
+    helpTitle: "¿Necesita ayuda en estas fiestas?",
+    helpText: "Regalos gratis para niños, comidas festivas, cajas de comida, abrigos y ayuda con la factura de calefacción. Muchas inscripciones cierran a principios de diciembre, así que empiece aquí.",
+    helpBtn: "Ver ayuda",
+    signUpBy: d => `Inscríbase antes del ${d}`,
+    closed: d => `Inscripción cerrada ${d}`,
+    found: n => `${n} resultado${n === 1 ? "" : "s"}`,
+    moreInfo: "Más información →",
+    noResults: "No hay resultados con esos filtros.<br>Intente ampliar su búsqueda.",
+    note: "Las fechas y reglas cambian. Llame o revise el enlace antes de ir. Para lo que no aparece aquí, llame al 211 (gratis, en cualquier idioma).",
+    locale: "es-US",
+  }
+};
+
+let lang = "en", costFilter = "all", countyFilter = "all", ageFilter = "all", typeFilter = "all", searchQuery = "";
+
+function isFree(cost) {
+  const c = cost.toUpperCase();
+  return c.startsWith("FREE") && !c.match(/\$[1-9]/);
+}
+function today() { const d = new Date(); d.setHours(0,0,0,0); return d; }
+function parseDeadline(s) { if (!s) return null; const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); }
+function isClosed(a) { const d = parseDeadline(a.deadline); return d ? d < today() : false; }
+function fmtDate(s) {
+  return parseDeadline(s).toLocaleDateString(ui[lang].locale, { month: "short", day: "numeric" });
+}
+
+function getFiltered() {
+  const list = activities.filter(a => {
+    if (a.until && parseDeadline(a.until) < today()) return false;  // past one-off events hide themselves
+    if (costFilter === "free" && !isFree(a.cost)) return false;
+    if (costFilter === "low" && isFree(a.cost)) return false;
+    if (countyFilter !== "all" && !a.counties.includes(countyFilter)) return false;
+    if (ageFilter !== "all" && !a.ageGroups.includes(ageFilter)) return false;
+    if (typeFilter !== "all" && !a.types.includes(typeFilter)) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const tr = translations[a.name];
+      const name = lang === "es" && tr ? tr.name : a.name;
+      const desc = lang === "es" && tr ? tr.desc : a.desc;
+      if (![name, desc, a.location, a.name, a.desc].some(s => s.toLowerCase().includes(q))) return false;
+    }
+    return true;
+  });
+  // Open sign-ups first (soonest deadline on top), then everything else in list order, closed sign-ups last.
+  const rank = a => isClosed(a) ? 2 : (a.deadline ? 0 : 1);
+  return list
+    .map((a, i) => ({ a, i }))
+    .sort((x, y) => rank(x.a) - rank(y.a)
+      || (rank(x.a) === 0 ? parseDeadline(x.a.deadline) - parseDeadline(y.a.deadline) : 0)
+      || x.i - y.i)
+    .map(x => x.a);
+}
+
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.getElementById("btn-en").classList.toggle("active", l === "en");
+  document.getElementById("btn-es").classList.toggle("active", l === "es");
+  const t = ui[l];
+  const set = (id, v) => document.getElementById(id).innerHTML = v;
+  set("hdr-eyebrow", t.eyebrow); set("hdr-title", t.title); set("hdr-sub", t.sub);
+  document.getElementById("search").placeholder = t.search;
+  set("lbl-cost", t.cost); set("lbl-county", t.county); set("lbl-age", t.age); set("lbl-type", t.type);
+  ["cost","county","age","type"].forEach(k => set(`chip-${k}-all`, t.all));
+  set("chip-cost-free", t.free); set("chip-cost-low", t.low);
+  set("chip-age-babies", t.babies); set("chip-age-kids", t.kids); set("chip-age-teens", t.teens);
+  ["help","meals","events","library","outdoors","arts"].forEach(k => set(`chip-type-${k}`, t[k]));
+  set("help-title", t.helpTitle); set("help-text", t.helpText); set("help-btn", t.helpBtn);
+  set("site-note", t.note);
+  renderCards();
+}
+
+function iconPin() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
+}
+function iconCal() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>`;
+}
+function iconPerson() {
+  return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`;
+}
+
+function renderCards() {
+  const grid = document.getElementById("grid");
+  const items = getFiltered();
+  const t = ui[lang];
+  document.getElementById("results-bar").textContent = t.found(items.length);
+  document.getElementById("help-callout").style.display = typeFilter === "help" ? "none" : "";
+  if (items.length === 0) {
+    grid.innerHTML = `<div class="no-results"><span>❄</span>${t.noResults}</div>`;
+    return;
+  }
+  grid.innerHTML = items.map(a => {
+    const tr = translations[a.name];
+    const name = lang === "es" && tr ? tr.name : a.name;
+    const desc = lang === "es" && tr ? tr.desc : a.desc;
+    const closed = isClosed(a);
+    const help = a.types.includes("help");
+    const deadline = a.deadline
+      ? `<div class="deadline${closed ? " closed" : ""}">${closed ? t.closed(fmtDate(a.deadline)) : t.signUpBy(fmtDate(a.deadline))}</div>`
+      : "";
+    return `
+      <div class="card${help ? " is-help" : ""}${closed ? " is-closed" : ""}">
+        <div class="card-top">
+          <div class="card-title">${name}</div>
+          <span class="badge-cost ${isFree(a.cost) ? "free" : "low"}">${a.cost}</span>
+        </div>
+        ${deadline}
+        <div class="card-meta">
+          <div class="meta-row">${iconCal()} ${a.dates}</div>
+          <div class="meta-row">${iconPin()} ${a.location}</div>
+          <div class="meta-row">${iconPerson()} ${a.ages}</div>
+        </div>
+        <div class="card-desc">${desc}</div>
+        <div class="card-footer">
+          <span class="badge-cat">${a.category}</span>
+          <a class="card-link" href="${a.link}" target="_blank" rel="noopener">${t.moreInfo}</a>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+function setFilter(filter, value) {
+  document.querySelectorAll(`[data-filter="${filter}"]`).forEach(c => c.classList.toggle("active", c.dataset.value === value));
+  if (filter === "cost") costFilter = value;
+  if (filter === "county") countyFilter = value;
+  if (filter === "age") ageFilter = value;
+  if (filter === "type") typeFilter = value;
+  renderCards();
+}
+
+document.addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if (chip && chip.dataset.filter) setFilter(chip.dataset.filter, chip.dataset.value);
+});
+document.getElementById("help-btn").addEventListener("click", () => setFilter("type", "help"));
+document.getElementById("search").addEventListener("input", e => { searchQuery = e.target.value.trim(); renderCards(); });
+
+// ?lang=es and ?type=help let the Squarespace page or a flyer link straight to a view.
+const params = new URLSearchParams(location.search);
+if (params.get("type")) typeFilter = params.get("type");
+setLang(params.get("lang") === "es" ? "es" : "en");
+if (params.get("type")) setFilter("type", params.get("type"));
+</script>
+</body>
+</html>
