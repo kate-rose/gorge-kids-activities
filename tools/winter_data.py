@@ -326,6 +326,13 @@ dict(name="Christmas in the Gorge at the Columbia Gorge Museum", category="Commu
   link="https://www.columbiagorgemuseum.org/christmas-in-the-gorge", counties=["Skamania"], ageGroups=ALL, types=["events","arts"],
   es=("Navidad en el Gorge en el Museo Columbia Gorge", "Música de banda, chocolate caliente con todo, y un árbol de Recuerdos del Gorge donde los niños cuelgan un adorno con su recuerdo favorito. Gratis con un pase de museo de FVRL (vea la tarjeta del Experience Pass).")),
 
+dict(name="Breakfast with Santa at Backwoods", category="Community Event",
+  dates="Sat, Dec 5, 2026 · seatings at 9 AM and 10 AM", until="2026-12-05",
+  location="Backwoods Brewing Company, Carson", ages="All ages", cost="FREE with a food donation",
+  desc="Breakfast with Santa, with photos and time to visit with him. It's free if you bring a non-perishable food donation (not expired), and the food goes to the Skamania County Christmas Basket. Reservations are required: call 509-427-3412.",
+  link="https://www.backwoodsbrewingcompany.com/", counties=["Skamania"], ageGroups=ALL, types=["events","meals"],
+  es=("Desayuno con Santa en Backwoods", "Desayuno con Santa, con fotos y tiempo para visitarlo. Es gratis si traen una donación de comida no perecedera (sin vencer), y la comida va a la Canasta de Navidad del Condado de Skamania. Se requiere reservación: llame al 509-427-3412.")),
+
 dict(name="Christmas in Carson: Tree Lighting & Santa", category="Community Event",
   dates="Sun, Dec 6, 2026 · 6:30 PM", until="2026-12-06",
   location="Gator Creek Gardens, Carson", ages="All ages", cost="FREE",
