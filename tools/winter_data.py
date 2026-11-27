@@ -270,12 +270,12 @@ dict(name="Kids' Ornaments & Movie at Columbia Center for the Arts", category="A
   link="https://www.columbiaarts.org/event-details/holiday-open-house-2026", counties=["Hood River"], ageGroups=["kids","teens"], types=["events","arts"],
   es=("Adornos y Película en Columbia Center for the Arts", "En la Casa Abierta navideña, los niños hacen adornos de metal repujado y decoran galletas; luego se proyecta El Cuento de Navidad de los Muppets a la 1:30. Entrada gratis (se aceptan donaciones). Confirmar asistencia ayuda a planear materiales.")),
 
-dict(name="4-H Holiday Craft: Mini Wreaths & Orange Garlands", category="Arts",
-  dates="Mon, Dec 7, 2026 · 5–6:30 PM · registration required", until="2026-12-07",
-  location="OSU Extension Office, 2990 Experiment Station Dr, Hood River", ages="All youth ages", cost="FREE",
-  desc="Hood River County 4-H hosts a free holiday craft night: kids make mini wreaths and dried-orange garlands to take home. You don't need to be in 4-H. Register with Grace Wesson at Grace.Wesson@oregonstate.edu or 541-386-3343. Need an accommodation to take part? Ask Grace by Mon, Nov 30.",
+dict(name="Makerspace Monday: Mini Wreaths & Orange Garlands (4-H)", category="Arts",
+  dates="Mon, Dec 7, 2026 · 5–6:30 PM · RSVP required", until="2026-12-07",
+  location="Hood River County OSU Extension, 2990 Experiment Station Dr, Hood River", ages="All youth ages", cost="FREE",
+  desc="A free 4-H holiday craft night: kids make mini wreaths and dried-orange garlands to take home. You don't need to be in 4-H. Families can drop kids off or stay and craft together. RSVP to Grace Wesson at Grace.Wesson@oregonstate.edu or 541-386-3343. Need an accommodation to take part? Ask Grace by Mon, Nov 30.",
   link="https://extension.oregonstate.edu/program/4h/hoodriver/events", counties=["Hood River"], ageGroups=["kids","teens"], types=["events","arts"],
-  es=("Manualidad Navideña de 4-H: Mini Coronas y Guirnaldas de Naranja", "4-H del condado de Hood River ofrece una noche gratis de manualidades navideñas: los niños hacen mini coronas y guirnaldas de naranja seca para llevar a casa. No necesitan ser miembros de 4-H. Inscríbanse con Grace Wesson en Grace.Wesson@oregonstate.edu o al 541-386-3343. ¿Necesitan una adaptación para participar? Pídanla a Grace antes del lunes 30 de noviembre.")),
+  es=("Lunes de Makerspace: Mini Coronas y Guirnaldas de Naranja (4-H)", "Una noche gratis de manualidades navideñas de 4-H: los niños hacen mini coronas y guirnaldas de naranja seca para llevar a casa. No necesitan ser miembros de 4-H. Las familias pueden dejar a los niños o quedarse a participar. Confirmen asistencia con Grace Wesson en Grace.Wesson@oregonstate.edu o al 541-386-3343. ¿Necesitan una adaptación para participar? Pídanla a Grace antes del lunes 30 de noviembre.")),
 
 dict(name="Free Kids Building Workshop at Hood River Hardwoods", category="Arts",
   dates="Sat, Dec 12, 2026 · 9 AM–12 PM · first come, first served", until="2026-12-12",
